@@ -269,32 +269,63 @@ LARA/
 
 #### الخطوة 4.1: إنشاء Navbar
 - [ ] إنشاء `components/layout/Navbar.tsx`
-- [ ] Logo "LARA"
-- [ ] قائمة التنقل: Home, Courses, About, Contact
-- [ ] Search Bar
-- [ ] زر Login/Register (للزوار)
-- [ ] User Dropdown Menu (للمستخدمين المسجلين):
+- [ ] **Logo**: "LARA" (تصميم مميز مع الألوان الرئيسية)
+- [ ] **Search Input**: بحث عن الكورسات مع أيقونة بحث
+- [ ] **Navigation Links** (للجميع):
+  - Home
   - Dashboard
-  - My Courses
+  - Course Player
+  - Recommended Courses
+  - Quiz
+  - About
+- [ ] **زر Login/Register** (للزوار غير المسجلين)
+- [ ] **User Dropdown Menu** (للمستخدمين المسجلين):
   - Profile
+  - Settings
   - Logout
 - [ ] Responsive Design (Hamburger Menu)
+- [ ] Sticky Navbar on scroll
+- [ ] Active link highlighting
 
 #### الخطوة 4.2: Hero Section
 - [ ] إنشاء `components/landing/HeroSection.tsx`
-- [ ] العنوان (بالإنجليزية): "Learn Smart, Grow Fast with LARA"
-- [ ] الوصف: "Access courses tailored for your career and personal growth"
-- [ ] CTA Buttons: "Browse Courses" + "Get Started"
-- [ ] صورة تعليمية مع أيقونات عائمة
-- [ ] تطبيق الـ Gradient الرئيسي
+- [ ] **العنوان الرئيسي**: "Learn Smart, Grow Fast"
+- [ ] **الوصف**: "Access courses tailored for your career and personal growth"
+- [ ] **CTA Button**: "Go to My Courses" (زر بارز بتأثيرات hover)
+- [ ] **Hero Image**:
+  - صورة تعليمية داخل إطار دائري (circular frame)
+  - أيقونات عائمة حول الصورة (floating icons):
+    - أيقونة كتاب
+    - أيقونة شهادة
+    - أيقونة طلاب
+    - أيقونة نجاح
+  - تطبيق Floating Animation على الأيقونات
+- [ ] تطبيق الـ Gradient الرئيسي كخلفية
+- [ ] Responsive Layout: نص على اليسار، صورة على اليمين (Stack على Mobile)
 
-#### الخطوة 4.3: Categories Section
+#### الخطوة 4.3: Categories Section - "Most Popular Categories"
 - [ ] إنشاء `components/landing/Categories.tsx`
-- [ ] عنوان القسم: "Most Popular Categories"
-- [ ] عرض التصنيفات الشائعة (6-8 تصنيفات) بالإنجليزية:
-  - Machine Learning, AI, Web Development, Data Science, etc.
-- [ ] CategoryCard مع الأيقونة، العدد، رابط
-- [ ] Grid Layout متجاوب
+- [ ] عنوان القسم: **"Most Popular Categories"**
+- [ ] إنشاء `data/categories.ts` مع البيانات التالية:
+  ```javascript
+  const categories = [
+    { name: "Machine Learning", courses: 120, learners: 40000, icon: "brain" },
+    { name: "Artificial Intelligence", courses: 150, learners: 50000, icon: "cpu" },
+    { name: "Cloud Computing", courses: 80, learners: 25000, icon: "cloud" },
+    { name: "Web Development", courses: 200, learners: 70000, icon: "code" },
+    { name: "Data Science", courses: 100, learners: 35000, icon: "database" },
+    { name: "Mobile App Development", courses: 90, learners: 30000, icon: "smartphone" }
+  ]
+  ```
+- [ ] إنشاء `components/shared/CategoryCard.tsx`:
+  - أيقونة التصنيف
+  - اسم التصنيف
+  - عدد الكورسات ("120 Courses")
+  - عدد المتعلمين ("40,000 Learners")
+  - زوايا دائرية + Shadow
+  - Hover Effect (Lift + Scale)
+- [ ] عرض CategoryCards ديناميكياً باستخدام `.map()`
+- [ ] Grid Layout: 3 columns على Desktop، 2 على Tablet، 1 على Mobile
 
 #### الخطوة 4.4: Featured Courses Section
 - [ ] إنشاء `components/landing/FeaturedCourses.tsx`
@@ -303,24 +334,103 @@ LARA/
 - [ ] CourseCard يعرض: صورة، عنوان، مدرب، تقييم (بالإنجليزية)
 - [ ] زر "View All Courses"
 
-#### الخطوة 4.5: Instructors Section
-- [ ] عنوان القسم: "Our Best Instructors" أو "Meet Our Instructors"
-- [ ] عرض أفضل المدربين (أسماء بالإنجليزية)
-- [ ] InstructorCard مع الصورة، الاسم، التخصص، عدد الكورسات
-- [ ] أمثلة: "John Smith - Web Developer", "Sarah Johnson - Data Scientist"
+#### الخطوة 4.5: Instructors Section - "Our Best Instructors"
+- [ ] إنشاء `components/landing/Instructors.tsx`
+- [ ] عنوان القسم: **"Our Best Instructors"**
+- [ ] إنشاء `data/instructors.ts` مع بيانات المدربين:
+  ```javascript
+  const instructors = [
+    { name: "Ibrahim Adel", specialty: "English Teacher", image: "/images/instructors/ibrahim.jpg", courses: 15 },
+    { name: "Paul Bullem", specialty: "Registered Nutritionist", image: "/images/instructors/paul.jpg", courses: 8 },
+    { name: "Osama Mohammed", specialty: "Software Engineer", image: "/images/instructors/osama.jpg", courses: 22 },
+    { name: "Ehab Fayez", specialty: "UI/UX Designer", image: "/images/instructors/ehab.jpg", courses: 12 },
+    { name: "Bassel Elkadi", specialty: "Drawing & Art", image: "/images/instructors/bassel.jpg", courses: 10 }
+  ]
+  ```
+- [ ] إنشاء `components/shared/InstructorCard.tsx`:
+  - صورة المدرب (دائرية)
+  - الاسم
+  - التخصص
+  - عدد الكورسات (اختياري)
+  - أيقونات Social Media (LinkedIn, Twitter) - اختياري
+  - Shadow + Hover Animation
+- [ ] عرض InstructorCards ديناميكياً
+- [ ] Grid Layout متجاوب
 
-#### الخطوة 4.6: Testimonials Section
-- [ ] عنوان القسم: "Student Testimonials" أو "What Our Students Say"
-- [ ] عرض تقييمات الطلاب (بالإنجليزية)
-- [ ] Carousel/Slider للتقييمات
-- [ ] TestimonialCard مع صورة، اسم، تقييم، نص التقييم بالإنجليزية
+#### الخطوة 4.6: Student Feedback Section - "Student Testimonials"
+- [ ] إنشاء `components/landing/Testimonials.tsx`
+- [ ] عنوان القسم: **"Student Feedback"** أو **"What Our Students Say"**
+- [ ] إنشاء `data/testimonials.ts` مع بيانات التقييمات:
+  ```javascript
+  const testimonials = [
+    {
+      name: "Sarah Johnson",
+      role: "Web Developer",
+      image: "/images/students/sarah.jpg",
+      rating: 5,
+      feedback: "LARA has completely transformed my career. The courses are well-structured and the instructors are top-notch. I landed my dream job thanks to the skills I learned here!"
+    },
+    // ... المزيد من التقييمات
+  ]
+  ```
+- [ ] إنشاء `components/shared/TestimonialCard.tsx`:
+  - الصورة الشخصية للطالب (دائرية)
+  - اسم الطالب
+  - تخصصه/مجاله
+  - نص التقييم (طويل ومفصل)
+  - تقييم بالنجوم (1-5 stars) باستخدام أيقونات
+  - Quote Icon كديكور
+- [ ] تطبيق Carousel/Slider:
+  - Auto-play كل 5 ثواني
+  - Navigation Arrows
+  - Dots Indicator
+  - إمكانية التحكم اليدوي
+- [ ] Responsive Design
 
 #### الخطوة 4.7: Footer
-- [ ] معلومات المنصة (بالإنجليزية)
-- [ ] أقسام: About LARA, Quick Links, Support, Contact
-- [ ] روابط سريعة: Home, Courses, About Us, Contact, Terms, Privacy
-- [ ] روابط التواصل الاجتماعي
-- [ ] Copyright: "© 2026 LARA. All rights reserved."
+- [ ] إنشاء `components/layout/Footer.tsx`
+- [ ] تقسيم Footer إلى أعمدة (Grid Layout):
+
+  **العمود 1: Logo + Description**
+  - [ ] Logo "LARA"
+  - [ ] وصف مختصر للمنصة (2-3 أسطر)
+  - [ ] أيقونات Social Media
+
+  **العمود 2: Contact Information**
+  - [ ] Phone: +1 (555) 123-4567
+  - [ ] Email: info@lara-platform.com
+  - [ ] Address (اختياري)
+
+  **العمود 3: Quick Links**
+  - [ ] Home
+  - [ ] Courses
+  - [ ] About Us
+  - [ ] Contact
+
+  **العمود 4: Support Links**
+  - [ ] Help Center
+  - [ ] FAQs
+  - [ ] Terms of Service
+  - [ ] Privacy Policy
+
+  **العمود 5: Account Links**
+  - [ ] Login
+  - [ ] Register
+  - [ ] My Courses
+  - [ ] Dashboard
+
+- [ ] **Footer Bottom**:
+  - [ ] خط فاصل (Divider)
+  - [ ] Copyright: "© 2026 LARA. All rights reserved."
+  - [ ] روابط إضافية (اختياري): Sitemap, Accessibility
+
+- [ ] Responsive Design:
+  - Desktop: 5 columns
+  - Tablet: 3 columns
+  - Mobile: 1 column (Stack)
+
+- [ ] Dark background مع نص فاتح
+- [ ] Hover effects على الروابط
 
 ---
 
