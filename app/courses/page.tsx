@@ -1,98 +1,96 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-
-const courses = [
-  {
-    id: 1,
-    title: "Design System",
-    duration: "2 hours",
-    rating: 4.27,
-    price: "$19.99",
-    isPaid: true,
-  },
-  {
-    id: 2,
-    title: "Figma",
-    duration: "39 hours",
-    rating: 4.63,
-    price: "free",
-    isPaid: false,
-  },
-  {
-    id: 3,
-    title: "Figma",
-    duration: "16.1 hours",
-    rating: 4.52,
-    price: "free",
-    isPaid: false,
-  },
-  {
-    id: 4,
-    title: "UX Design",
-    duration: "1.7 hours",
-    rating: 4.24,
-    price: "$24.99",
-    isPaid: true,
-  },
-  {
-    id: 5,
-    title: "UI Design",
-    duration: "32 hours",
-    rating: 4.52,
-    price: "free",
-    isPaid: false,
-  },
-  {
-    id: 6,
-    title: "UI Design",
-    duration: "30 hours",
-    rating: 5,
-    price: "free",
-    isPaid: false,
-  },
-];
+import { useState } from "react";
 
 export default function CoursesPage() {
-  return (
-    <div className="min-h-screen bg-white py-16 px-8">
-      <section className="max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">
-          Recommended Courses for You
-        </h2>
+  const [interest, setInterest] = useState("");
+  const [previousCourses, setPreviousCourses] = useState("");
+  const [skills, setSkills] = useState("");
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {courses.map((course) => (
-            <div
-              key={course.id}
-              className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <h3 className="text-xl font-semibold mb-3">{course.title}</h3>
-              <p className="text-sm text-gray-600 mb-2">
-                Duration: {course.duration} ⏱
-              </p>
-              <p className="text-sm text-gray-600 mb-2">
-                Rating: {course.rating} ⭐
-              </p>
-              <p className="text-sm text-gray-800 mb-4">
-                Price:{" "}
-                <span
-                  className={
-                    course.isPaid ? "text-orange-600 font-semibold" : "text-green-600 font-semibold"
-                  }
-                >
-                  {course.price}
-                </span>
-              </p>
-              <Link
-                href={`/payment?course=${course.id}`}
-                className="inline-block w-full text-center bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] text-gray-800 font-semibold py-2 px-4 rounded-lg hover:opacity-90 transition-opacity"
-              >
-                View Details
-              </Link>
-            </div>
-          ))}
+  const handleRecommend = (e: React.FormEvent) => {
+    e.preventDefault();
+    // يمكن إضافة منطق التوصية هنا
+    console.log({ interest, previousCourses, skills });
+  };
+
+  return (
+    <div className="min-h-screen bg-white flex justify-center">
+      <div className="w-full">
+        {/* Header Banner */}
+        <div 
+          className="py-8 px-5 text-center"
+          style={{ background: "linear-gradient(90deg, #ffe0bb, #ffb36c)" }}
+        >
+          <h1 className="text-[32px] font-bold mb-1.5">Discover Your Learning Path</h1>
+          <p className="text-[#444] text-[15px]">
+            Enter your details and leverage AI to get personalized and effective
+            course suggestions.
+          </p>
         </div>
-      </section>
+
+        {/* Main Card */}
+        <div 
+          className="bg-white flex flex-col md:flex-row min-h-[420px] mx-auto rounded-xl overflow-hidden border-4"
+          style={{ borderColor: "#ffcc94" }}
+        >
+          {/* Left Side - Form */}
+          <div className="flex-1 px-10 py-10">
+            <form onSubmit={handleRecommend} className="flex flex-col gap-3.5">
+              <label className="text-sm text-gray-800 font-semibold">Your interest:</label>
+              <input
+                type="text"
+                value={interest}
+                onChange={(e) => setInterest(e.target.value)}
+                className="px-3 py-3 rounded-full border border-gray-300 outline-none bg-[#fafafa] text-sm"
+                placeholder="e.g. Programming, Design"
+              />
+
+              <label className="text-sm text-gray-800 font-semibold">Previous courses</label>
+              <input
+                type="text"
+                value={previousCourses}
+                onChange={(e) => setPreviousCourses(e.target.value)}
+                className="px-3 py-3 rounded-full border border-gray-300 outline-none bg-[#fafafa] text-sm"
+                placeholder="e.g. Python, HTML, etc."
+              />
+
+              <label className="text-sm text-gray-800 font-semibold">What are your skills?</label>
+              <input
+                type="text"
+                value={skills}
+                onChange={(e) => setSkills(e.target.value)}
+                className="px-3 py-3 rounded-full border border-gray-300 outline-none bg-[#fafafa] text-sm"
+                placeholder="e.g. Problem solving, drawing"
+              />
+
+              <Link
+                href="/courses-list"
+                className="mt-5 w-2/5 mx-auto py-3.5 px-9 flex justify-center items-center bg-[#e88700] text-white font-semibold text-base rounded-full whitespace-nowrap cursor-pointer no-underline"
+                style={{ boxShadow: "0 6px 15px rgba(232, 135, 0, 0.35)" }}
+              >
+                recommend course
+              </Link>
+            </form>
+          </div>
+
+          {/* Right Side - Image */}
+          <div className="flex-1 h-[260px] md:h-auto">
+            <Image
+              src="/images/discover/Rectangle 4350.png"
+              alt="AI Suggestion Image"
+              width={600}
+              height={500}
+              className="w-full h-full object-cover"
+              style={{ 
+                filter: "brightness(1.15) saturate(0.6)",
+                opacity: 0.85 
+              }}
+            />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

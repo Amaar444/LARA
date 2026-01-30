@@ -6,23 +6,19 @@ import { useState } from "react";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
+    fullName: "",
+    phone: "",
+    role: "",
     password: "",
-    confirmPassword: "",
+    email: "",
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle signup logic here
-    if (formData.password !== formData.confirmPassword) {
-      alert("Passwords don't match!");
-      return;
-    }
     window.location.href = "/dashboard";
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -30,136 +26,125 @@ export default function SignupPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 py-12">
-      <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-4xl w-full flex">
-        {/* Left Side - Image */}
-        <div className="w-1/2 relative hidden md:block">
-          <Image
-            src="/images/auth/create-bg.jpeg.png"
-            alt="Signup Background"
-            fill
-            className="object-cover"
-          />
-        </div>
+    <div 
+      className="min-h-screen flex items-center justify-center p-5" 
+      style={{ background: "linear-gradient(to bottom, #f7b165, #f7d9a1)" }}
+    >
+      <div className="w-full max-w-[1100px]">
+        <div className="bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+          {/* Left Side - Form */}
+          <div className="flex-1 px-8 md:px-12 py-10 relative flex flex-col justify-center items-center min-h-[500px]">
+            <div className="w-full max-w-md">
+              <h2 className="text-[26px] font-bold text-gray-900 mb-1.5 text-center">Create Your Account</h2>
+              <p className="text-gray-600 text-center text-sm font-medium mb-6 leading-relaxed">Unlock Knowledge And Grow Your Skills Today!</p>
+            </div>
 
-        {/* Right Side - Form */}
-        <div className="w-full md:w-1/2 p-12">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Account</h2>
-            <p className="text-gray-600">Join LARA and start learning today!</p>
-          </div>
-
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Full Name
-              </label>
+          <form onSubmit={handleSubmit} className="w-full max-w-md space-y-5">
+            {/* Full Name + Phone */}
+            <div className="grid grid-cols-2 gap-4">
               <input
                 type="text"
-                name="name"
-                value={formData.name}
+                name="fullName"
+                value={formData.fullName}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Enter your full name"
+                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+                placeholder="Full Name"
                 required
               />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Email
-              </label>
               <input
-                type="email"
-                name="email"
-                value={formData.email}
+                type="text"
+                name="phone"
+                value={formData.phone}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Enter your email"
+                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+                placeholder="Phone"
                 required
               />
             </div>
 
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Password
-              </label>
+            {/* Role Selection */}
+            <select
+              name="role"
+              value={formData.role}
+              onChange={handleChange}
+              className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              required
+            >
+              <option value="">Role Selection</option>
+              <option value="student" className="text-gray-700">Student</option>
+              <option value="instructor" className="text-gray-700">Instructor</option>
+            </select>
+
+            {/* Password + Email */}
+            <div className="grid grid-cols-2 gap-4">
               <input
                 type="password"
                 name="password"
                 value={formData.password}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Create a password"
+                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+                placeholder="Password"
                 required
               />
-            </div>
-
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Confirm Password
-              </label>
               <input
-                type="password"
-                name="confirmPassword"
-                value={formData.confirmPassword}
+                type="email"
+                name="email"
+                value={formData.email}
                 onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Confirm your password"
+                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+                placeholder="Email"
                 required
               />
-            </div>
-
-            <div className="flex items-center">
-              <input
-                type="checkbox"
-                className="w-4 h-4 text-orange-600 border-gray-300 rounded focus:ring-orange-400"
-                required
-              />
-              <span className="ml-2 text-sm text-gray-600">
-                I agree to the{" "}
-                <Link href="#" className="text-orange-600 hover:text-orange-700">
-                  Terms & Conditions
-                </Link>
-              </span>
             </div>
 
             <button
               type="submit"
-              className="w-full bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] text-gray-800 font-semibold py-3 rounded-lg hover:opacity-90 transition-opacity"
+              className="w-[150px] h-[42px] mx-auto block bg-[#e79c3c] text-white font-semibold rounded-full hover:bg-[#d68524] transition-colors mt-4 text-[15px]"
             >
-              Create Account
+              Sign up
             </button>
           </form>
 
-          <div className="mt-6">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center">
-                <div className="w-full border-t border-gray-300"></div>
+          <div className="w-full max-w-md">
+            <p className="mt-4 text-center text-sm text-gray-700">
+              Already have account?{" "}
+              <Link href="/login" className="text-[#e79c3c] font-medium hover:underline">
+                Login here
+              </Link>
+            </p>
+
+            <div className="mt-6">
+              <div className="flex items-center w-full my-6 text-xs tracking-wider text-gray-500 font-medium">
+                <div className="flex-1 h-px bg-gray-300"></div>
+                <span className="mx-2.5 uppercase">or sign in with</span>
+                <div className="flex-1 h-px bg-gray-300"></div>
               </div>
-              <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Or sign up with</span>
+
+              <div className="flex justify-center gap-3 mb-4">
+                <button className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border-2 border-[#e2dbd5] bg-transparent text-[13px] text-[#d2cbc4] hover:border-gray-400 transition-colors">
+                  <Image src="/images/auth/face.png" alt="Facebook" width={18} height={18} />
+                  Facebook
+                </button>
+                <button className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border-2 border-[#e2dbd5] bg-transparent text-[13px] text-[#d2cbc4] hover:border-gray-400 transition-colors">
+                  <Image src="/images/auth/google.png" alt="Google" width={18} height={18} />
+                  Google
+                </button>
               </div>
             </div>
 
-            <div className="mt-6 grid grid-cols-2 gap-3">
-              <button className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                <Image src="/images/auth/google.png" alt="Google" width={20} height={20} />
-                <span className="text-sm font-medium">Google</span>
-              </button>
-              <button className="flex items-center justify-center gap-2 px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors">
-                <Image src="/images/auth/face.png" alt="Facebook" width={20} height={20} />
-                <span className="text-sm font-medium">Facebook</span>
-              </button>
-            </div>
+            <div className="text-sm text-gray-600">🌐 EN</div>
           </div>
+        </div>
 
-          <p className="mt-8 text-center text-sm text-gray-600">
-            Already have an account?{" "}
-            <Link href="/login" className="text-orange-600 font-semibold hover:text-orange-700">
-              Sign in
-            </Link>
-          </p>
+        {/* Right Side - Image */}
+        <div className="hidden md:block md:flex-[1.1] relative h-[500px] md:h-auto">
+          <Image
+            src="/images/auth/create-bg.jpeg.png"
+            alt="Student watching online course"
+            fill
+            className="object-cover"
+          />
+        </div>
         </div>
       </div>
     </div>
