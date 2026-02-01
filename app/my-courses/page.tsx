@@ -103,17 +103,33 @@ export default function MyCoursesPage() {
           </div>
 
           <div className="hidden md:flex justify-center items-center">
-            <div 
-              className="w-[260px] h-[260px] rounded-full bg-white flex justify-center items-center"
-              style={{ boxShadow: "0 0 0 16px #ffd39b" }}
-            >
-              <Image
-                src="/images/my-courses/Frame 1984077640.png"
-                alt="Student"
-                width={310}
-                height={300}
-                className="rounded-full object-cover"
-              />
+            <div className="relative w-80 h-80">
+              <div 
+                className="w-full h-full rounded-full bg-white flex justify-center items-center border-8 border-white shadow-2xl"
+                style={{ boxShadow: "0 0 0 16px #ffd39b" }}
+              >
+                <Image
+                  src="/images/my-courses/Frame 1984077640.png"
+                  alt="Student"
+                  width={310}
+                  height={300}
+                  className="rounded-full object-cover"
+                />
+              </div>
+              
+              {/* Floating Icons */}
+              <div className="absolute -top-4 -right-4 w-16 h-16 bg-white rounded-full shadow-lg flex items-center justify-center text-2xl animate-bounce" style={{ animationDelay: "0s" }}>
+                ❤️
+              </div>
+              <div className="absolute top-1/4 -left-6 w-14 h-14 bg-white rounded-full shadow-lg flex items-center justify-center text-xl" style={{ animation: "pulse 2s infinite" }}>
+                ▶️
+              </div>
+              <div className="absolute bottom-8 -right-8 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-lg animate-bounce" style={{ animationDelay: "0.5s" }}>
+                ⭐
+              </div>
+              <div className="absolute bottom-1/4 -left-4 w-10 h-10 bg-white rounded-full shadow-lg flex items-center justify-center text-base" style={{ animation: "pulse 2s infinite", animationDelay: "0.5s" }}>
+                👍
+              </div>
             </div>
           </div>
         </div>
@@ -137,14 +153,16 @@ export default function MyCoursesPage() {
               { img: "lk.png", title: "Data Science", desc: "100 Courses, 35,000 Learner" },
               { img: "tg.png", title: "Mobile App Development", desc: "90 Courses, 30,000 Learner" },
             ].map((cat, idx) => (
-              <article key={idx} className="bg-[#fff6cf] rounded-2xl p-3.5 shadow-sm">
-                <Image
-                  src={`/images/my-courses/${cat.img}`}
-                  alt={cat.title}
-                  width={400}
-                  height={200}
-                  className="w-full rounded-xl mb-2.5"
-                />
+              <article key={idx} className="bg-[#fff6cf] rounded-2xl p-3.5 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
+                <div className="overflow-hidden rounded-xl mb-2.5">
+                  <Image
+                    src={`/images/my-courses/${cat.img}`}
+                    alt={cat.title}
+                    width={400}
+                    height={200}
+                    className="w-full transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
                 <h3 className="text-base font-semibold mb-1">{cat.title}</h3>
                 <p className="text-[13px] text-gray-600">{cat.desc}</p>
               </article>
@@ -168,14 +186,16 @@ export default function MyCoursesPage() {
                 { img: "'p;.png", name: "Osama Mohammed", role: "Software engineer" },
                 { img: ",m.png", name: "Ehab Fayez", role: "UI/UX Designer" },
               ].map((inst, idx) => (
-                <article key={idx} className="min-w-[170px] max-w-[170px] bg-white rounded-2xl p-2.5 text-center shadow-sm">
-                  <Image
-                    src={`/images/my-courses/${inst.img}`}
-                    alt={inst.name}
-                    width={170}
-                    height={170}
-                    className="w-full rounded-xl mb-2"
-                  />
+                <article key={idx} className="min-w-[170px] max-w-[170px] bg-white rounded-2xl p-2.5 text-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
+                  <div className="overflow-hidden rounded-xl mb-2">
+                    <Image
+                      src={`/images/my-courses/${inst.img}`}
+                      alt={inst.name}
+                      width={170}
+                      height={170}
+                      className="w-full transition-transform duration-300 hover:scale-110"
+                    />
+                  </div>
                   <h3 className="text-sm font-semibold mb-0.5">{inst.name}</h3>
                   <p className="text-xs text-gray-600">{inst.role}</p>
                 </article>
@@ -218,21 +238,22 @@ export default function MyCoursesPage() {
                   text: "This is exactly what I was looking for, very practical and easy to follow. Thanks for the great effort!",
                 },
               ].map((feedback, idx) => (
-                <article key={idx} className="min-w-[260px] max-w-[260px] bg-white rounded-2xl p-4 shadow-sm">
-                  <div className="flex items-center gap-2.5 mb-2">
+                <article key={idx} className="min-w-[260px] max-w-[260px] bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                  <div className="flex items-center gap-2.5 mb-3">
                     <Image
                       src={`/images/my-courses/${feedback.img}`}
                       alt={feedback.name}
                       width={40}
                       height={40}
-                      className="rounded-full object-cover"
+                      className="rounded-full object-cover border-2 border-orange-200"
                     />
-                    <div>
+                    <div className="flex-1">
                       <h3 className="text-sm font-semibold">{feedback.name}</h3>
                       <p className="text-[11px] text-gray-600">{feedback.role}</p>
                     </div>
+                    <span className="text-3xl text-orange-400">"</span>
                   </div>
-                  <p className="text-xs text-gray-700 leading-relaxed">{feedback.text}</p>
+                  <p className="text-xs text-gray-700 leading-relaxed italic">{feedback.text}</p>
                 </article>
               ))}
             </div>
@@ -244,13 +265,13 @@ export default function MyCoursesPage() {
         </section>
 
         {/* ChatBot Link - Fixed Position */}
-        <Link href="/chatbot" className="fixed right-10 bottom-10 z-30">
+        <Link href="/chatbot" className="fixed right-10 bottom-10 z-30 group">
           <Image
             src="/images/my-courses/unsplash_d42U7dK0M9w.png"
             alt="Go to ChatBot"
             width={70}
             height={70}
-            className="cursor-pointer hover:scale-110 transition-transform hover:shadow-xl rounded-full"
+            className="cursor-pointer hover:scale-110 transition-transform hover:shadow-2xl rounded-full shadow-lg animate-bounce"
           />
         </Link>
 

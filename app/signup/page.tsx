@@ -15,7 +15,12 @@ export default function SignupPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = "/dashboard";
+    // Redirect based on role selection
+    if (formData.role === "instructor") {
+      window.location.href = "/dashboard";
+    } else {
+      window.location.href = "/my-courses";
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {

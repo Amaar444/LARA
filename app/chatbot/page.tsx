@@ -8,7 +8,7 @@ export default function ChatBotPage() {
   const [messages, setMessages] = useState([
     {
       id: 1,
-      text: "HI Nourhan 👋 I'M LARA, What can I help you with",
+      text: "HI Ammar 👋 I'M LARA, What can I help you with",
       isBot: true,
     },
   ]);

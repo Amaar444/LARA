@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LARA - Course Player</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div class="page-bg">
+  <div class="page-shell">
+
+    <!-- ========= HEADER ========= -->
+    <header class="main-header">
+      <div class="header-left">
+        <!-- logo -->
+        <div class="logo">
+          <img src="images/logo.png" alt="LARA logo">
+        </div>
+
+        <!-- search -->
+        <div class="search-box">
+          <input type="text" placeholder="Search">
+        </div>
+      </div>
+
+      <!-- nav -->
+      <nav class="header-nav">
+        <a href="../Home/index.html">Home</a>
+        <a href="../dashboard/index.html">Dashboard</a>
+        <a href="#" class="active">Course Player</a>
+        <a href="../Discover Your Learning Path/index.html">Recommended Courses</a>
+        <a href="../Quiz/index.html">Quiz</a>
+        <a href="../Aboat us/index.html">About</a>
+      </nav>
+
+      <!-- right -->
+      <div class="header-right">
+        <div class="header-avatar" id="profileToggle">
+          <img src="images/Ellipse 68.png" alt="Profile">
+        </div>
+        <button class="menu-btn">☰</button>
+
+        <!-- dropdown -->
+        <div class="profile-menu" id="profileMenu">
+          <a href="../frame1/index.html">Profile</a>
+          <a href="#">Setting</a>
+          <a href="../login/index.html">Login</a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========= COURSE PLAYER ========= -->
+    <main class="course-wrapper">
+
+      <!-- عنوان الكورس + Share / Save -->
+      <div class="course-top-row">
+        <h1 class="course-title">
+          UI Design, A User - Centered Approach
+        </h1>
+
+        <div class="course-actions">
+          <button class="pill-btn share-btn">
+            <!-- غير الأيقونة لو عندك svg/صورة -->
+            <span>Share</span>
+          </button>
+          <button class="pill-btn save-btn">
+            <span>Save</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- الفيديو + قائمة السيشن -->
+      <section class="player-layout">
+        <!-- LEFT: VIDEO -->
+        <div class="video-column">
+          <div class="video-player">
+            <!-- حط صورة الفيديو أو iframe -->
+            <img src="images/;,k.png" alt="Video" class="video-img">
+
+            <!-- أيقونة Play -->
+            <div class="play-overlay">
+              <div class="play-icon">▶</div>
+            </div>
+          </div>
+
+          <!-- COMMENT INPUT BAR -->
+          <div class="comment-input-row">
+            <div class="comment-icons-left">
+              <!-- avatars / icons حسب ما عندك -->
+              <img src="images/Ellipse 68.png" class="comment-avatar" alt="">
+              <button class="icon-btn">＋</button>
+              <button class="icon-btn">📎</button>
+            </div>
+
+            <div class="comment-input-wrap">
+              <input type="text" placeholder="Comment" id="commentInput">
+            </div>
+
+            <button class="send-btn" id="sendComment">➤</button>
+          </div>
+
+          <!-- COMMENTS LIST -->
+          <div class="comments-list" id="commentsList">
+            <!-- comment 1 -->
+            <article class="comment">
+              <div class="comment-header">
+                <div class="comment-user">
+                  <img src="images/hhh.png" class="comment-avatar" alt="">
+                  <div>
+                    <div class="comment-name">Anas</div>
+                    <div class="comment-time">12:05 Am</div>
+                  </div>
+                </div>
+              </div>
+              <p class="comment-text">
+                The course is excellent, and the explanation method is very simple and clear.
+                I truly benefited from every lesson. Thank you for the wonderful content!
+              </p>
+              <div class="comment-actions">
+                <button class="like-btn">👍</button>
+                <button class="reply-btn">Replay</button>
+              </div>
+            </article>
+
+            <!-- comment 2 -->
+            <article class="comment">
+              <div class="comment-header">
+                <div class="comment-user">
+                  <img src="images/Ellipse 69.png" class="comment-avatar" alt="">
+                  <div>
+                    <div class="comment-name">nour</div>
+                    <div class="comment-time">3:01 pm</div>
+                  </div>
+                </div>
+              </div>
+              <p class="comment-text">
+                The explanation is practical and straightforward, and I loved that the
+                examples are realistic and easy to apply. I recommend this course to anyone
+                starting out.
+              </p>
+              <div class="comment-actions">
+                <button class="like-btn">👍</button>
+                <button class="reply-btn">Replay</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- RIGHT: SESSIONS LIST -->
+        <aside class="sessions-column">
+          <div class="sessions-header">
+            <span class="sessions-title">Sessions</span>
+            <span class="sessions-status">5/21 Completed</span>
+          </div>
+
+          <ul class="sessions-list" id="sessionsList">
+            <li class="session-item completed">
+              <div class="session-index">01.</div>
+              <div class="session-text">Introduction to UI Design</div>
+              <div class="session-icon">✔</div>
+            </li>
+
+            <li class="session-item completed">
+              <div class="session-index">02.</div>
+              <div class="session-text">Is UI Design an important field with a future?</div>
+              <div class="session-icon">✔</div>
+            </li>
+
+            <li class="session-item completed">
+              <div class="session-index">03.</div>
+              <div class="session-text">What type of device do you need?</div>
+              <div class="session-icon">✔</div>
+            </li>
+
+            <li class="session-item completed">
+              <div class="session-index">04.</div>
+              <div class="session-text">Everything you need to know about colors</div>
+              <div class="session-icon">✔</div>
+            </li>
+
+            <li class="session-item active">
+              <div class="session-index">05.</div>
+              <div class="session-text">Exercitation elit incididunt esse</div>
+              <div class="session-play">▶</div>
+            </li>
+
+            <li class="session-item">
+              <div class="session-index">06.</div>
+              <div class="session-text">Everything you need to know about texts</div>
+            </li>
+          </ul>
+        </aside>
+      </section>
+    </main>
+
+    <!-- ========= FOOTER ========= -->
+    <footer class="site-footer">
+      <div class="footer-top">
+        <div class="footer-left">
+          <img src="images/logo.png" class="footer-logo" alt="LARA logo">
+        </div>
+
+        <div class="footer-contact">
+          <div class="contact-item">
+            <img src="images/nm.png" class="contact-icon" alt="">
+            <span class="label">Phone:</span>
+            <span class="value">+123 456 789</span>
+          </div>
+
+          <div class="contact-item">
+            <img src="images/Overlay+Border.png" class="contact-icon" alt="">
+            <span class="label">Email:</span>
+            <span class="value">info@gmail.com</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-main">
+        <div class="footer-col footer-about">
+          <p class="footer-about-text">
+            An innovative educational platform offering smart
+            courses to enhance your skills.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-heading">Quick Links</p>
+          <ul>
+            <li>Home</li>
+            <li>Courses</li>
+            <li>About LARA</li>
+            <li>Instructors</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-heading">Support</p>
+          <ul>
+            <li>Contact Us</li>
+            <li>FAQ</li>
+            <li>Privacy</li>
+            <li>Terms</li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <p class="footer-heading">Your Account</p>
+          <ul>
+            <li>Profile</li>
+            <li>Settings</li>
+            <li>Logout</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="footer-copy">© 2025 LARA — All rights reserved</p>
+    </footer>
+
+  </div>
+</div>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>

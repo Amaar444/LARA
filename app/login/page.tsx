@@ -7,10 +7,16 @@ import { useState } from "react";
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState("student");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    window.location.href = "/my-courses";
+    // Redirect based on role
+    if (role === "instructor") {
+      window.location.href = "/dashboard";
+    } else {
+      window.location.href = "/my-courses";
+    }
   };
 
   return (
@@ -53,6 +59,15 @@ export default function LoginPage() {
                   placeholder="Password"
                   required
                 />
+
+                <select
+                  value={role}
+                  onChange={(e) => setRole(e.target.value)}
+                  className="w-full px-4 py-3 my-2 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
+                >
+                  <option value="student">Student</option>
+                  <option value="instructor">Instructor</option>
+                </select>
 
                 <Link href="#" className="block w-full text-right text-xs text-gray-600 underline mt-1.5 mb-4">
                   Forgot your password?
