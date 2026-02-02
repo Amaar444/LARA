@@ -1,128 +1,69 @@
 "use client";
 
-import React from "react";
-import Link from "next/link";
 import Image from "next/image";
-import { FaPhone, FaEnvelope } from "react-icons/fa";
+import Link from "next/link";
 
-const CourseBuilderFooter: React.FC = () => {
+const CourseBuilderFooter = () => {
   return (
-    <footer className="bg-gradient-to-r from-[#FF8A00] to-[#FFB84D] text-white py-12 mt-16">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          {/* Logo & Description */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <Image
-                src="/images/Home in/Frame 1984077959.png"
-                alt="LARA Logo"
-                width={50}
-                height={50}
-                className="rounded-lg"
-              />
-              <h3 className="text-2xl font-bold">LARA</h3>
-            </div>
-            <p className="text-sm leading-relaxed opacity-90">
-              An innovative educational platform offering smart courses to enhance your skills
-            </p>
-          </div>
+    <footer 
+      className="text-black px-10 py-4 mt-5"
+      style={{ background: "linear-gradient(to right, #f2b164, #e5914d, #f2b164)" }}
+    >
+      {/* Top */}
+      <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/50 pb-2.5 mb-4 gap-4">
+        <Image src="/images/my-courses/logo.png" alt="LARA logo" width={60} height={60} />
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/dashboard" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link href="/courses" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Courses
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  About LARA
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Instructors
-                </Link>
-              </li>
-            </ul>
+        <div className="flex flex-col md:flex-row gap-4 md:gap-10">
+          <div className="flex items-center gap-2 text-sm">
+            <Image src="/images/my-courses/nm.png" alt="Phone" width={20} height={20} />
+            <span className="font-semibold">Phone:</span>
+            <span className="text-white">+123 456 789</span>
           </div>
-
-          {/* Support */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Support</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="#" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Contact Us
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  FAQ
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Terms
-                </Link>
-              </li>
-            </ul>
+          <div className="flex items-center gap-2 text-sm">
+            <Image src="/images/my-courses/Overlay+Border.png" alt="Email" width={20} height={20} />
+            <span className="font-semibold">Email:</span>
+            <span className="text-white">info@gmail.com</span>
           </div>
-
-          {/* Your Account */}
-          <div>
-            <h4 className="text-lg font-bold mb-4">Your Account</h4>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/profile" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Profile
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Settings
-                </Link>
-              </li>
-              <li>
-                <Link href="/login" className="hover:underline opacity-90 hover:opacity-100 transition-opacity">
-                  Logout
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        {/* Contact Info */}
-        <div className="flex items-center justify-between mt-8 pt-8 border-t border-white/30">
-          <div className="flex items-center gap-6">
-            <div className="flex items-center gap-2">
-              <FaPhone className="text-lg" />
-              <span className="text-sm opacity-90">xxxxxxxxx</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <FaEnvelope className="text-lg" />
-              <span className="text-sm opacity-90">info@gmail.com</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Copyright */}
-        <div className="text-center mt-6">
-          <p className="text-sm opacity-80">© 2025 LARA — All rights reserved</p>
         </div>
       </div>
+
+      {/* Main */}
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-8 mb-2.5">
+        <div className="max-w-[260px]">
+          <p className="text-sm">An innovative educational platform offering smart courses to enhance your skills.</p>
+        </div>
+
+        <div>
+          <p className="font-bold mb-1">Quick Links</p>
+          <ul className="text-sm space-y-0.5 list-disc ml-4">
+            <li><Link href="/instructor-home" className="hover:underline">Home</Link></li>
+            <li><Link href="/courses-management" className="hover:underline">Courses</Link></li>
+            <li><Link href="/about" className="hover:underline">About LARA</Link></li>
+            <li><Link href="#" className="hover:underline">Instructors</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="font-bold mb-1">Support</p>
+          <ul className="text-sm space-y-0.5 list-disc ml-4">
+            <li><Link href="#" className="hover:underline">Contact Us</Link></li>
+            <li><Link href="#" className="hover:underline">FAQ</Link></li>
+            <li><Link href="#" className="hover:underline">Privacy</Link></li>
+            <li><Link href="#" className="hover:underline">Terms</Link></li>
+          </ul>
+        </div>
+
+        <div>
+          <p className="font-bold mb-1">Your Account</p>
+          <ul className="text-sm space-y-0.5 list-disc ml-4">
+            <li><Link href="/instructor-profile" className="hover:underline">Profile</Link></li>
+            <li><Link href="#" className="hover:underline">Settings</Link></li>
+            <li><Link href="/login" className="hover:underline">Logout</Link></li>
+          </ul>
+        </div>
+      </div>
+
+      <p className="text-center text-[13px] text-white">© 2025 LARA — All rights reserved</p>
     </footer>
   );
 };

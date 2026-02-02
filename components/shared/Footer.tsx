@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-const CoursesManagementFooter = () => {
+const Footer = () => {
   return (
     <footer 
       className="text-black px-10 py-4 mt-5"
@@ -36,8 +36,8 @@ const CoursesManagementFooter = () => {
         <div>
           <p className="font-bold mb-1">Quick Links</p>
           <ul className="text-sm space-y-0.5 list-disc ml-4">
-            <li><Link href="/instructor-home" className="hover:underline">Home</Link></li>
-            <li><Link href="/courses-management" className="hover:underline">Courses</Link></li>
+            <li><Link href="/" className="hover:underline">Home</Link></li>
+            <li><Link href="/courses" className="hover:underline">Courses</Link></li>
             <li><Link href="/about" className="hover:underline">About LARA</Link></li>
             <li><Link href="#" className="hover:underline">Instructors</Link></li>
           </ul>
@@ -56,7 +56,7 @@ const CoursesManagementFooter = () => {
         <div>
           <p className="font-bold mb-1">Your Account</p>
           <ul className="text-sm space-y-0.5 list-disc ml-4">
-            <li><Link href="/instructor-profile" className="hover:underline">Profile</Link></li>
+            <li><Link href="/profile" className="hover:underline">Profile</Link></li>
             <li><Link href="#" className="hover:underline">Settings</Link></li>
             <li><Link href="/login" className="hover:underline">Logout</Link></li>
           </ul>
@@ -68,4 +68,4 @@ const CoursesManagementFooter = () => {
   );
 };
 
-export default CoursesManagementFooter;
+export default Footer;

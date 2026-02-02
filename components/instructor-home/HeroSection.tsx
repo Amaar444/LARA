@@ -54,7 +54,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ userName }) => {
             <div className="absolute inset-0 bg-gradient-to-br from-orange-300 to-yellow-200 rounded-full" />
             <div className="absolute inset-2 bg-gradient-to-br from-orange-200 to-yellow-100 rounded-full overflow-hidden">
               <Image
-                src="/images/Home in/unsplash_d42U7dK0M9w (1).png"
+                src="/images/Home in/Frame 1984077640"
                 alt="Instructor"
                 fill
                 className="object-cover object-center"
