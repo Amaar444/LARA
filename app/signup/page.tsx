@@ -3,24 +3,32 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FaUser, FaPhone, FaLock, FaEnvelope, FaEye, FaEyeSlash, FaFacebook, FaGoogle, FaGlobe } from "react-icons/fa";
 
 export default function SignupPage() {
   const [formData, setFormData] = useState({
     fullName: "",
     phone: "",
-    role: "",
+    role: "student",
     password: "",
     email: "",
   });
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Redirect based on role selection
-    if (formData.role === "instructor") {
-      window.location.href = "/dashboard";
-    } else {
-      window.location.href = "/my-courses";
-    }
+    setIsLoading(true);
+    
+    setTimeout(() => {
+      if (formData.role === "instructor") {
+        window.location.href = "/dashboard";
+      } else if (formData.role === "admin") {
+        window.location.href = "/admin-dashboard";
+      } else {
+        window.location.href = "/my-courses";
+      }
+    }, 800);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
@@ -32,124 +40,217 @@ export default function SignupPage() {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center p-5" 
-      style={{ background: "linear-gradient(to bottom, #f7b165, #f7d9a1)" }}
+      className="min-h-screen flex items-center justify-center p-5 overflow-hidden" 
+      style={{ background: "radial-gradient(circle at top, #ffbe8a, #ff9e45, #ffa85b)" }}
     >
-      <div className="w-full max-w-[1100px]">
-        <div className="bg-white rounded-xl shadow-2xl overflow-hidden flex flex-col md:flex-row">
+      {/* Animated Background Shapes */}
+      <div className="absolute top-10 left-10 w-32 h-32 bg-white/10 rounded-full blur-2xl animate-pulse" />
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl animate-pulse" style={{ animationDelay: "1s" }} />
+      <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-orange-300/20 rounded-full blur-xl animate-float" />
+
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes slideDown {
+          from { opacity: 0; transform: translateY(-20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes slideUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .animate-fadeIn { animation: fadeIn 0.5s ease-out forwards; }
+        .animate-slideDown { animation: slideDown 0.5s ease-out forwards; }
+        .animate-slideUp { animation: slideUp 0.5s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
+      `}</style>
+      
+      <div className="w-full max-w-[1100px] animate-fadeIn">
+        <div className="bg-white rounded-3xl shadow-2xl overflow-hidden flex flex-col md:flex-row transform hover:shadow-[0_25px_60px_rgba(0,0,0,0.15)] transition-shadow duration-500">
           {/* Left Side - Form */}
-          <div className="flex-1 px-8 md:px-12 py-10 relative flex flex-col justify-center items-center min-h-[500px]">
-            <div className="w-full max-w-md">
-              <h2 className="text-[26px] font-bold text-gray-900 mb-1.5 text-center">Create Your Account</h2>
-              <p className="text-gray-600 text-center text-sm font-medium mb-6 leading-relaxed">Unlock Knowledge And Grow Your Skills Today!</p>
-            </div>
-
-          <form onSubmit={handleSubmit} className="w-full max-w-md space-y-5">
-            {/* Full Name + Phone */}
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="text"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Full Name"
-                required
-              />
-              <input
-                type="text"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Phone"
-                required
-              />
-            </div>
-
-            {/* Role Selection */}
-            <select
-              name="role"
-              value={formData.role}
-              onChange={handleChange}
-              className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              required
+          <div className="flex-1 px-8 md:px-12 py-10 relative flex flex-col justify-center items-center min-h-[550px]">
+            {/* Login Button - Top Right */}
+            <Link
+              href="/login"
+              className="absolute top-6 right-6 px-6 py-2 rounded-full border-2 border-[#ff9c30] text-[#ff9c30] text-sm font-semibold hover:bg-gradient-to-r hover:from-[#ff9c30] hover:to-[#ffb347] hover:text-white hover:border-transparent hover:scale-105 hover:shadow-lg transition-all duration-300 animate-slideDown"
             >
-              <option value="">Role Selection</option>
-              <option value="student" className="text-gray-700">Student</option>
-              <option value="instructor" className="text-gray-700">Instructor</option>
-            </select>
+              Login
+            </Link>
 
-            {/* Password + Email */}
-            <div className="grid grid-cols-2 gap-4">
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Password"
-                required
-              />
-              <input
-                type="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-5 py-3 rounded-full border border-gray-300 bg-[#fafafa] text-sm focus:outline-none focus:ring-2 focus:ring-orange-400"
-                placeholder="Email"
-                required
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-[150px] h-[42px] mx-auto block bg-[#e79c3c] text-white font-semibold rounded-full hover:bg-[#d68524] transition-colors mt-4 text-[15px]"
-            >
-              Sign up
-            </button>
-          </form>
-
-          <div className="w-full max-w-md">
-            <p className="mt-4 text-center text-sm text-gray-700">
-              Already have account?{" "}
-              <Link href="/login" className="text-[#e79c3c] font-medium hover:underline">
-                Login here
-              </Link>
-            </p>
-
-            <div className="mt-6">
-              <div className="flex items-center w-full my-6 text-xs tracking-wider text-gray-500 font-medium">
-                <div className="flex-1 h-px bg-gray-300"></div>
-                <span className="mx-2.5 uppercase">or sign in with</span>
-                <div className="flex-1 h-px bg-gray-300"></div>
+            <div className="w-full max-w-md mt-8">
+              {/* Header */}
+              <div className="text-center mb-8 animate-slideDown" style={{ animationDelay: "0.1s" }}>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2">Create Your Account</h2>
+                <p className="text-gray-500 text-sm font-medium">
+                  Unlock Knowledge And Grow Your Skills Today!
+                </p>
               </div>
 
-              <div className="flex justify-center gap-3 mb-4">
-                <button className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border-2 border-[#e2dbd5] bg-transparent text-[13px] text-[#d2cbc4] hover:border-gray-400 transition-colors">
-                  <Image src="/images/auth/face.png" alt="Facebook" width={18} height={18} />
-                  Facebook
-                </button>
-                <button className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full border-2 border-[#e2dbd5] bg-transparent text-[13px] text-[#d2cbc4] hover:border-gray-400 transition-colors">
-                  <Image src="/images/auth/google.png" alt="Google" width={18} height={18} />
-                  Google
-                </button>
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Full Name Input */}
+                <div className="relative animate-slideUp" style={{ animationDelay: "0.15s" }}>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <FaUser />
+                  </div>
+                  <input
+                    type="text"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={handleChange}
+                    className="w-full pl-11 pr-4 py-3.5 rounded-full border-2 border-gray-200 bg-gray-50 text-sm focus:outline-none focus:border-orange-400 focus:bg-white focus:shadow-md transition-all duration-300"
+                    placeholder="Full Name"
+                    required
+                  />
+                </div>
+
+                {/* Phone Input */}
+                <div className="relative animate-slideUp" style={{ animationDelay: "0.2s" }}>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <FaPhone />
+                  </div>
+                  <input
+                    type="text"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full pl-11 pr-4 py-3.5 rounded-full border-2 border-gray-200 bg-gray-50 text-sm focus:outline-none focus:border-orange-400 focus:bg-white focus:shadow-md transition-all duration-300"
+                    placeholder="Phone"
+                    required
+                  />
+                </div>
+
+                {/* Email Input */}
+                <div className="relative animate-slideUp" style={{ animationDelay: "0.25s" }}>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <FaEnvelope />
+                  </div>
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full pl-11 pr-4 py-3.5 rounded-full border-2 border-gray-200 bg-gray-50 text-sm focus:outline-none focus:border-orange-400 focus:bg-white focus:shadow-md transition-all duration-300"
+                    placeholder="Email Address"
+                    required
+                  />
+                </div>
+
+                {/* Password Input */}
+                <div className="relative animate-slideUp" style={{ animationDelay: "0.3s" }}>
+                  <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">
+                    <FaLock />
+                  </div>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    name="password"
+                    value={formData.password}
+                    onChange={handleChange}
+                    className="w-full pl-11 pr-12 py-3.5 rounded-full border-2 border-gray-200 bg-gray-50 text-sm focus:outline-none focus:border-orange-400 focus:bg-white focus:shadow-md transition-all duration-300"
+                    placeholder="Password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-orange-500 transition-colors"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+
+                {/* Role Select - Same as Login */}
+                <div className="relative animate-slideUp" style={{ animationDelay: "0.35s" }}>
+                  <select
+                    name="role"
+                    value={formData.role}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3.5 rounded-full border-2 border-gray-200 bg-gray-50 text-sm focus:outline-none focus:border-orange-400 focus:bg-white focus:shadow-md transition-all duration-300 cursor-pointer appearance-none"
+                  >
+                    <option value="student">👨‍🎓 Student</option>
+                    <option value="instructor">👨‍🏫 Instructor</option>
+                    <option value="admin">👨‍💼 Admin</option>
+                  </select>
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400">
+                    ▼
+                  </div>
+                </div>
+
+                {/* Sign Up Button */}
+                <div className="pt-2 animate-slideUp" style={{ animationDelay: "0.4s" }}>
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="w-full max-w-[220px] mx-auto block py-3.5 bg-gradient-to-r from-[#ff9c30] to-[#ffb347] text-white rounded-full font-semibold text-base hover:from-[#e88b20] hover:to-[#ffa030] hover:scale-105 hover:shadow-xl transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+                  >
+                    {isLoading ? (
+                      <span className="flex items-center justify-center gap-2">
+                        <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                        </svg>
+                        Creating...
+                      </span>
+                    ) : (
+                      "Sign Up"
+                    )}
+                  </button>
+                </div>
+              </form>
+
+              {/* Divider */}
+              <div className="mt-8 animate-fadeIn" style={{ animationDelay: "0.45s" }}>
+                <div className="flex items-center w-full my-6">
+                  <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+                  <span className="mx-4 text-xs text-gray-400 font-medium uppercase tracking-wider">or sign up with</span>
+                  <div className="flex-1 h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+                </div>
+
+                {/* Social Buttons */}
+                <div className="flex justify-center gap-4 animate-slideUp" style={{ animationDelay: "0.5s" }}>
+                  <button className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:shadow-md hover:scale-105 transition-all duration-300 group">
+                    <FaFacebook className="text-blue-600 group-hover:scale-110 transition-transform" />
+                    Facebook
+                  </button>
+                  <button className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-600 hover:border-red-400 hover:text-red-500 hover:shadow-md hover:scale-105 transition-all duration-300 group">
+                    <FaGoogle className="text-red-500 group-hover:scale-110 transition-transform" />
+                    Google
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="text-sm text-gray-600">🌐 EN</div>
+            {/* Language Selector */}
+            <div className="absolute bottom-5 left-5 flex items-center gap-2 text-sm text-gray-500 hover:text-orange-500 cursor-pointer transition-colors animate-fadeIn" style={{ animationDelay: "0.55s" }}>
+              <FaGlobe />
+              <span>EN</span>
+            </div>
           </div>
-        </div>
 
-        {/* Right Side - Image */}
-        <div className="hidden md:block md:flex-[1.1] relative h-[500px] md:h-auto">
-          <Image
-            src="/images/auth/create-bg.jpeg.png"
-            alt="Student watching online course"
-            fill
-            className="object-cover"
-          />
-        </div>
+          {/* Right Side - Image */}
+          <div className="hidden md:block md:flex-[1.1] relative h-[550px] md:h-auto overflow-hidden group">
+            <Image
+              src="/images/auth/create-bg.jpeg.png"
+              alt="Student watching online course"
+              fill
+              className="object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+              style={{ filter: "brightness(0.7)" }}
+              priority
+            />
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+            
+            {/* Floating Text on Image */}
+            <div className="absolute bottom-10 left-8 right-8 text-white animate-slideUp" style={{ animationDelay: "0.6s" }}>
+              <h3 className="text-2xl font-bold mb-2">Join Our Community! 🌟</h3>
+              <p className="text-sm opacity-90">Start your learning journey with thousands of students worldwide</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

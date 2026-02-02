@@ -1,0 +1,15 @@
+export { default as AdminNavbar } from './AdminNavbar';
+export { default as AdminStatsCard } from './AdminStatsCard';
+export { default as DistributionChart } from './DistributionChart';
+export { default as PendingApprovals } from './PendingApprovals';
+export { default as DropoutRateChart } from './DropoutRateChart';
+export { default as DropoutComparisonChart } from './DropoutComparisonChart';
+export { default as RepeatedCoursesChart } from './RepeatedCoursesChart';
+export { default as LatestActivityTable } from './LatestActivityTable';
+export { default as UserFilters } from './UserFilters';
+export { default as UserTable } from './UserTable';
+export { default as Pagination } from './Pagination';
+export { default as CreateUserButton } from './CreateUserButton';
+export { default as AdminCourseFilters } from './AdminCourseFilters';
+export { default as AdminCourseCard } from './AdminCourseCard';
+export { default as AdminProfileFooter } from './AdminProfileFooter';

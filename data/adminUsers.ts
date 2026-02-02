@@ -1,0 +1,16 @@
+export const usersData = [
+  { id: 1, name: "user1", email: "user1@example.com", progress: 40, status: "Suspended" as const },
+  { id: 2, name: "user2", email: "user2@example.com", progress: 70, status: "Active" as const },
+  { id: 3, name: "user3", email: "user3@example.com", progress: 60, status: "Active" as const },
+  { id: 4, name: "user4", email: "user4@example.com", progress: 20, status: "Pending" as const },
+  { id: 5, name: "user5", email: "user5@example.com", progress: 50, status: "Pending" as const },
+  { id: 6, name: "user6", email: "user6@example.com", progress: 90, status: "Active" as const },
+  { id: 7, name: "user7", email: "user7@example.com", progress: 100, status: "Active" as const },
+  { id: 8, name: "user8", email: "user8@example.com", progress: 35, status: "Active" as const },
+  { id: 9, name: "user9", email: "user9@example.com", progress: 85, status: "Suspended" as const },
+  { id: 10, name: "user10", email: "user10@example.com", progress: 55, status: "Pending" as const },
+  { id: 11, name: "user11", email: "user11@example.com", progress: 75, status: "Active" as const },
+  { id: 12, name: "user12", email: "user12@example.com", progress: 45, status: "Active" as const },
+  { id: 13, name: "user13", email: "user13@example.com", progress: 65, status: "Pending" as const },
+  { id: 14, name: "user14", email: "user14@example.com", progress: 80, status: "Active" as const },
+];
