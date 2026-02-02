@@ -6,7 +6,6 @@ import {
   UserFilters,
   UserTable,
   Pagination,
-  CreateUserButton,
 } from "@/components/admin-dashboard";
 import { usersData } from "@/data/adminUsers";
 
@@ -86,7 +85,12 @@ export default function AdminUsersPage() {
       <main className="px-8 py-6 max-w-6xl mx-auto">
         {/* Header with Create Button */}
         <div className="flex justify-end mb-6">
-          <CreateUserButton onClick={handleCreateUser} />
+          <button
+            onClick={handleCreateUser}
+            className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg font-medium hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-md hover:shadow-lg"
+          >
+            + Create New User
+          </button>
         </div>
 
         {/* Filters */}

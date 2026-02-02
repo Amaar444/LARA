@@ -44,7 +44,7 @@ const DropoutComparisonChart: React.FC<DropoutComparisonChartProps> = ({ data })
                 borderRadius: "8px",
                 fontSize: "12px"
               }}
-              formatter={(value: number) => [`${(value * 100).toFixed(1)}%`, "Dropout Rate"]}
+              formatter={(value: any) => [`${(value * 100).toFixed(1)}%`, "Dropout Rate"]}
             />
             <Bar dataKey="rate" radius={[4, 4, 0, 0]} barSize={60}>
               {data.map((entry, index) => (
@@ -54,7 +54,7 @@ const DropoutComparisonChart: React.FC<DropoutComparisonChartProps> = ({ data })
                 dataKey="rate" 
                 position="top" 
                 fontSize={11}
-                formatter={(value: number) => `${(value * 100).toFixed(1)}%`}
+                formatter={(value: any) => `${(value * 100).toFixed(1)}%`}
               />
             </Bar>
           </BarChart>

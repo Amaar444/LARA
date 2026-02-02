@@ -53,7 +53,7 @@ const DropoutRateChart: React.FC<DropoutRateChartProps> = ({ data }) => {
                 dataKey="rate" 
                 position="top" 
                 fontSize={10}
-                formatter={(value: number) => `${value}%`}
+                formatter={(value: any) => `${value}%`}
               />
             </Bar>
           </BarChart>
