@@ -50,6 +50,9 @@ const InstructorHomeNavbar: React.FC = () => {
         <Link href="/student-tracking" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
           Student Tracking
         </Link>
+        <Link href="/final-quiz" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+          Final Quiz
+        </Link>
       </nav>
 
       {/* Right - Profile & Menu */}

@@ -92,7 +92,7 @@ export default function QuizPage() {
             </p>
           </div>
           <Link
-            href="/dashboard"
+            href="/student-dashboard"
             className="inline-block bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] text-gray-800 font-semibold py-3 px-8 rounded-lg hover:opacity-90 transition-opacity"
           >
             Back to Dashboard

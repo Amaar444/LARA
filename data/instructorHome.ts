@@ -48,28 +48,28 @@ export const testimonialData = [
     name: "Sarah Ahmed",
     course: "UX Design",
     feedback: "The course was incredibly comprehensive. I learned so much about user experience design and now I feel confident applying these skills in real projects.",
-    avatarUrl: "/images/my-courses/Ellipse 68 (1).png",
+    avatarUrl: "/images/my-courses/Rectangle%2025.png",
   },
   {
     id: 2,
     name: "Mohamed Ali",
     course: "Python Programming",
     feedback: "Best programming course I've ever taken! The instructor explains complex concepts in a simple way. Highly recommended for beginners.",
-    avatarUrl: "/images/Home in/Ellipse 70.png",
+    avatarUrl: "/images/Home%20in/Ellipse%2070.png",
   },
   {
     id: 3,
     name: "Fatima Hassan",
     course: "UI Design",
     feedback: "This course transformed my design skills. The practical projects were especially helpful in building my portfolio.",
-    avatarUrl: "/images/my-courses/Ellipse 70.png",
+    avatarUrl: "/images/my-courses/Ellipse%2070.png",
   },
   {
     id: 4,
     name: "Omar Khaled",
     course: "Adobe XD",
     feedback: "Excellent course structure and content. I went from zero knowledge to creating professional prototypes in just a few weeks.",
-    avatarUrl: "/images/Home in/Ellipse 70 (1).png",
+    avatarUrl: "/images/my-courses/amm.jpeg",
   },
 ];
 

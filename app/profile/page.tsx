@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { FaUser, FaEnvelope, FaPhone, FaVenusMars, FaEdit, FaSave } from "react-icons/fa";
 
 export default function ProfilePage() {
   const [isEditing, setIsEditing] = useState<string | null>(null);
+  const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [profileData, setProfileData] = useState({
     name: "Nourhan Hessen",
     email: "nourhanhessen142@gmail.com",
@@ -23,154 +25,248 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-amber-50">
+      <style jsx global>{`
+        @keyframes fadeInDown {
+          from { opacity: 0; transform: translateY(-30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(30px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes scaleIn {
+          from { opacity: 0; transform: scale(0.9); }
+          to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse-glow {
+          0%, 100% { box-shadow: 0 0 20px rgba(255, 174, 116, 0.3); }
+          50% { box-shadow: 0 0 30px rgba(255, 174, 116, 0.6); }
+        }
+        .animate-fadeInDown { animation: fadeInDown 0.6s ease-out forwards; }
+        .animate-fadeInUp { animation: fadeInUp 0.6s ease-out forwards; }
+        .animate-scaleIn { animation: scaleIn 0.5s ease-out forwards; }
+        .animate-pulse-glow { animation: pulse-glow 2s ease-in-out infinite; }
+      `}</style>
       {/* Header */}
-      <header className="bg-white shadow-sm px-8 py-4">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center gap-4">
-            <Image src="/images/logo.jpg" alt="LARA Logo" width={50} height={50} className="rounded-full" />
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search"
-                className="border border-gray-300 rounded-lg px-4 py-2 w-48 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
+      <header 
+        className="h-[70px] sticky top-0 z-50 flex items-center justify-between px-9 shadow-lg animate-fadeInDown"
+        style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}
+      >
+        {/* Left - Logo & Search */}
+        <div className="flex items-center gap-4">
+          <Link href="/" className="hover:scale-105 transition-transform">
+            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg" />
+          </Link>
+          <div className="search-box">
+            <input
+              type="text"
+              placeholder="Search"
+              className="w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
+            />
+          </div>
+        </div>
+
+        {/* Center - Navigation */}
+        <nav className="hidden md:flex gap-5 text-sm">
+          <Link href="/" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+            Home
+          </Link>
+          <Link href="/student-dashboard" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+            Dashboard
+          </Link>
+          <Link href="/course-player" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+            Course Player
+          </Link>
+          <Link href="/courses" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+            Recommended Courses
+          </Link>
+          <Link href="/quiz" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+            Quiz
+          </Link>
+          <Link href="/about" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+            About
+          </Link>
+        </nav>
+
+        {/* Right - Profile & Menu */}
+        <div className="flex items-center gap-4 relative">
+          <div 
+            className="cursor-pointer hover:scale-110 transition-transform"
+            onClick={() => setShowProfileMenu(!showProfileMenu)}
+          >
+            <Image
+              src="/images/dashboard/Ellipse%2068.png"
+              alt="Profile"
+              width={40}
+              height={40}
+              className="rounded-full object-cover border-2 border-white shadow-md"
+            />
+          </div>
+          <button className="text-xl bg-transparent border-none cursor-pointer hover:scale-110 transition-transform">
+            ☰
+          </button>
+
+          {/* Profile Menu Dropdown */}
+          {showProfileMenu && (
+            <div className="absolute top-[54px] right-0 bg-white rounded-lg shadow-lg min-w-[130px] py-2 z-50 animate-fadeInDown">
+              <Link href="/profile" className="block px-4 py-2 text-gray-800 text-sm hover:bg-[#ffe6c5] font-semibold">
+                Profile
+              </Link>
+              <Link href="#" className="block px-4 py-2 text-gray-800 text-sm hover:bg-[#ffe6c5]">
+                Settings
+              </Link>
+              <Link href="/login" className="block px-4 py-2 text-gray-800 text-sm hover:bg-[#ffe6c5]">
+                Logout
+              </Link>
             </div>
-          </div>
-
-          <nav className="flex gap-6 text-sm">
-            <Link href="/" className="text-gray-700 hover:text-gray-900">Home</Link>
-            <Link href="/dashboard" className="text-gray-700 hover:text-gray-900">Dashboard</Link>
-            <Link href="/course-player" className="text-gray-700 hover:text-gray-900">Course Player</Link>
-            <Link href="/courses" className="text-gray-700 hover:text-gray-900">Recommended Courses</Link>
-            <Link href="/quiz" className="text-gray-700 hover:text-gray-900">Quiz</Link>
-            <Link href="/about" className="text-gray-900 font-semibold border-b-2 border-gray-900">About</Link>
-          </nav>
-
-          <div className="flex items-center gap-3">
-            <Image src="/images/dashboard/Ellipse 68.png" alt="Profile" width={40} height={40} className="rounded-full" />
-          </div>
+          )}
         </div>
       </header>
 
-      <main className="max-w-4xl mx-auto px-8 py-12">
+      <main className="max-w-5xl mx-auto px-8 py-12">
         {/* Back Button */}
-        <Link href="/dashboard" className="inline-flex items-center gap-2 text-gray-700 hover:text-gray-900 mb-8">
-          <span>←</span> Back
+        <Link 
+          href="/student-dashboard" 
+          className="inline-flex items-center gap-2 text-gray-700 hover:text-orange-600 mb-8 font-semibold transition-all hover:gap-3 animate-fadeInUp"
+        >
+          <span className="text-2xl">←</span> Back
         </Link>
 
         {/* Profile Section */}
-        <div className="bg-white rounded-2xl shadow-lg p-8">
+        <div className="bg-white rounded-3xl shadow-2xl p-10 animate-scaleIn border-2 border-orange-100">
           {/* Avatar */}
-          <div className="flex flex-col items-center mb-8">
-            <div className="relative">
+          <div className="flex flex-col items-center mb-10">
+            <div className="relative animate-pulse-glow">
               <Image
-                src="/images/dashboard/Ellipse 68.png"
+                src="/images/dashboard/Ellipse%2068.png"
                 alt="Profile Photo"
-                width={120}
-                height={120}
-                className="rounded-full border-4 border-orange-200"
+                width={140}
+                height={140}
+                className="rounded-full border-4 border-orange-300"
               />
-              <button className="absolute bottom-0 right-0 w-10 h-10 bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] rounded-full flex items-center justify-center text-xl hover:opacity-90 transition-opacity">
-                ✏️
+              <button className="absolute bottom-2 right-2 w-12 h-12 bg-gradient-to-r from-orange-400 to-amber-300 rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                <FaEdit className="text-white text-lg" />
               </button>
             </div>
+            <h2 className="text-2xl font-bold text-gray-800 mt-4">{profileData.name}</h2>
+            <p className="text-gray-500">{profileData.email}</p>
           </div>
 
           {/* Profile Fields */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-w-2xl mx-auto">
             {/* Full Name */}
-            <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-              <div className="flex-1">
-                <div className="text-sm text-gray-500 mb-1">Full Name</div>
-                {isEditing === "name" ? (
-                  <input
-                    type="text"
-                    value={profileData.name}
-                    onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
-                    className="text-lg font-medium border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                  />
-                ) : (
-                  <div className="text-lg font-medium">{profileData.name}</div>
-                )}
+            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
+              <div className="flex items-center gap-4 flex-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+                  <FaUser className="text-white text-xl" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-500 mb-1 font-semibold">Full Name</div>
+                  {isEditing === "name" ? (
+                    <input
+                      type="text"
+                      value={profileData.name}
+                      onChange={(e) => setProfileData({ ...profileData, name: e.target.value })}
+                      className="text-lg font-semibold border-2 border-orange-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    />
+                  ) : (
+                    <div className="text-lg font-semibold text-gray-800">{profileData.name}</div>
+                  )}
+                </div>
               </div>
               <button
                 onClick={() => (isEditing === "name" ? handleSave() : handleEdit("name"))}
-                className="text-orange-600 hover:text-orange-700 font-semibold"
+                className="px-5 py-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-md flex items-center gap-2"
               >
-                {isEditing === "name" ? "Save" : "Edit"}
+                {isEditing === "name" ? <><FaSave /> Save</> : <><FaEdit /> Edit</>}
               </button>
             </div>
 
             {/* Email */}
-            <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-              <div className="flex-1">
-                <div className="text-sm text-gray-500 mb-1">Email</div>
-                {isEditing === "email" ? (
-                  <input
-                    type="email"
-                    value={profileData.email}
-                    onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
-                    className="text-lg font-medium border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                  />
-                ) : (
-                  <div className="text-lg font-medium">{profileData.email}</div>
-                )}
+            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
+              <div className="flex items-center gap-4 flex-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+                  <FaEnvelope className="text-white text-xl" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-500 mb-1 font-semibold">Email</div>
+                  {isEditing === "email" ? (
+                    <input
+                      type="email"
+                      value={profileData.email}
+                      onChange={(e) => setProfileData({ ...profileData, email: e.target.value })}
+                      className="text-lg font-semibold border-2 border-orange-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    />
+                  ) : (
+                    <div className="text-lg font-semibold text-gray-800">{profileData.email}</div>
+                  )}
+                </div>
               </div>
               <button
                 onClick={() => (isEditing === "email" ? handleSave() : handleEdit("email"))}
-                className="text-orange-600 hover:text-orange-700 font-semibold"
+                className="px-5 py-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-md flex items-center gap-2"
               >
-                {isEditing === "email" ? "Save" : "Edit"}
+                {isEditing === "email" ? <><FaSave /> Save</> : <><FaEdit /> Edit</>}
               </button>
             </div>
 
             {/* Gender */}
-            <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-              <div className="flex-1">
-                <div className="text-sm text-gray-500 mb-1">Gender</div>
-                {isEditing === "gender" ? (
-                  <select
-                    value={profileData.gender}
-                    onChange={(e) => setProfileData({ ...profileData, gender: e.target.value })}
-                    className="text-lg font-medium border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                  >
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                  </select>
-                ) : (
-                  <div className="text-lg font-medium">{profileData.gender}</div>
-                )}
+            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
+              <div className="flex items-center gap-4 flex-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+                  <FaVenusMars className="text-white text-xl" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-500 mb-1 font-semibold">Gender</div>
+                  {isEditing === "gender" ? (
+                    <select
+                      value={profileData.gender}
+                      onChange={(e) => setProfileData({ ...profileData, gender: e.target.value })}
+                      className="text-lg font-semibold border-2 border-orange-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    >
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                  ) : (
+                    <div className="text-lg font-semibold text-gray-800">{profileData.gender}</div>
+                  )}
+                </div>
               </div>
               <button
                 onClick={() => (isEditing === "gender" ? handleSave() : handleEdit("gender"))}
-                className="text-orange-600 hover:text-orange-700 font-semibold"
+                className="px-5 py-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-md flex items-center gap-2"
               >
-                {isEditing === "gender" ? "Save" : "Edit"}
+                {isEditing === "gender" ? <><FaSave /> Save</> : <><FaEdit /> Edit</>}
               </button>
             </div>
 
             {/* Phone Number */}
-            <div className="flex items-center justify-between border-b border-gray-200 pb-4">
-              <div className="flex-1">
-                <div className="text-sm text-gray-500 mb-1">Phone Number</div>
-                {isEditing === "phone" ? (
-                  <input
-                    type="tel"
-                    value={profileData.phone}
-                    onChange={(e) => setProfileData({ ...profileData, phone: e.target.value })}
-                    className="text-lg font-medium border border-gray-300 rounded px-3 py-1 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                  />
-                ) : (
-                  <div className="text-lg font-medium">{profileData.phone}</div>
-                )}
+            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
+              <div className="flex items-center gap-4 flex-1">
+                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+                  <FaPhone className="text-white text-xl" />
+                </div>
+                <div className="flex-1">
+                  <div className="text-sm text-gray-500 mb-1 font-semibold">Phone Number</div>
+                  {isEditing === "phone" ? (
+                    <input
+                      type="tel"
+                      value={profileData.phone}
+                      onChange={(e) => setProfileData({ ...profileData, phone: e.target.value })}
+                      className="text-lg font-semibold border-2 border-orange-300 rounded-lg px-4 py-2 w-full focus:outline-none focus:ring-2 focus:ring-orange-400"
+                    />
+                  ) : (
+                    <div className="text-lg font-semibold text-gray-800">{profileData.phone}</div>
+                  )}
+                </div>
               </div>
               <button
                 onClick={() => (isEditing === "phone" ? handleSave() : handleEdit("phone"))}
-                className="text-orange-600 hover:text-orange-700 font-semibold"
+                className="px-5 py-2 bg-gradient-to-r from-orange-500 to-amber-400 text-white font-semibold rounded-full hover:scale-105 transition-transform shadow-md flex items-center gap-2"
               >
-                {isEditing === "phone" ? "Save" : "Edit"}
+                {isEditing === "phone" ? <><FaSave /> Save</> : <><FaEdit /> Edit</>}
               </button>
             </div>
           </div>
@@ -179,21 +275,19 @@ export default function ProfilePage() {
 
       {/* Footer */}
       <footer 
-        className="text-black px-10 py-4 mt-5"
+        className="text-black px-10 py-4 mt-10"
         style={{ background: "linear-gradient(to right, #f2b164, #e5914d, #f2b164)" }}
       >
         {/* Top */}
         <div className="flex flex-col md:flex-row items-center justify-between border-b border-white/50 pb-2.5 mb-4 gap-4">
-          <Image src="/images/my-courses/logo.png" alt="LARA logo" width={60} height={60} />
+          <Image src="/images/about/logo.png" alt="LARA logo" width={65} height={65} className="rounded-lg" />
 
           <div className="flex flex-col md:flex-row gap-4 md:gap-10">
             <div className="flex items-center gap-2 text-sm">
-              <Image src="/images/my-courses/nm.png" alt="Phone" width={20} height={20} />
               <span className="font-semibold">Phone:</span>
               <span className="text-white">+123 456 789</span>
             </div>
             <div className="flex items-center gap-2 text-sm">
-              <Image src="/images/my-courses/Overlay+Border.png" alt="Email" width={20} height={20} />
               <span className="font-semibold">Email:</span>
               <span className="text-white">info@gmail.com</span>
             </div>

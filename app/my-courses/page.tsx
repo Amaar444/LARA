@@ -33,7 +33,7 @@ export default function MyCoursesPage() {
           <Link href="/" className="text-gray-800 font-semibold border-b-2 border-gray-800 pb-0.5">
             Home
           </Link>
-          <Link href="/dashboard" className="text-gray-800 hover:font-semibold">
+          <Link href="/student-dashboard" className="text-gray-800 hover:font-semibold">
             Dashboard
           </Link>
           <Link href="/course-player" className="text-gray-800 hover:font-semibold">

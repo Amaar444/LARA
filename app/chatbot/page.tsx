@@ -64,7 +64,7 @@ export default function ChatBotPage() {
             </div>
           </div>
           <Link
-            href="/dashboard"
+            href="/student-dashboard"
             className="text-gray-700 hover:text-gray-900 text-2xl font-bold"
           >
             ✕

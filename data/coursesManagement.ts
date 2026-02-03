@@ -12,7 +12,7 @@ export const coursesData: Course[] = [
   {
     id: 1,
     title: "UI Design",
-    imageUrl: "/images/courses/ui-design.jpg",
+    imageUrl: "/images/Frame%201984078275.png",
     students: 281,
     lessons: 22,
     status: "Active",
@@ -21,7 +21,7 @@ export const coursesData: Course[] = [
   {
     id: 2,
     title: "Adobe XD",
-    imageUrl: "/images/courses/adobe-xd.jpg",
+    imageUrl: "/images/image%2015%20(1).png",
     students: 65,
     lessons: 22,
     status: "Active",
@@ -30,7 +30,7 @@ export const coursesData: Course[] = [
   {
     id: 3,
     title: "UX Trends",
-    imageUrl: "/images/courses/ux-trends.jpg",
+    imageUrl: "/images/Rectangle%204397.png",
     students: 43,
     lessons: 2,
     status: "Active",
@@ -39,7 +39,7 @@ export const coursesData: Course[] = [
   {
     id: 4,
     title: "How to develop your skills in UI/UX",
-    imageUrl: "/images/courses/ui-ux-skills.jpg",
+    imageUrl: "/images/Frame%201984078275%20(1).png",
     students: 150,
     lessons: 18,
     status: "Draft",
@@ -48,7 +48,7 @@ export const coursesData: Course[] = [
   {
     id: 5,
     title: "Figma Update",
-    imageUrl: "/images/courses/figma-update.jpg",
+    imageUrl: "/images/Frame%201984078273.png",
     students: 89,
     lessons: 12,
     status: "Draft",
@@ -57,7 +57,7 @@ export const coursesData: Course[] = [
   {
     id: 6,
     title: "Adobe XD Update",
-    imageUrl: "/images/courses/adobe-xd-update.jpg",
+    imageUrl: "/images/Rectangle%204397%20(1).png",
     students: 45,
     lessons: 7,
     status: "Draft",

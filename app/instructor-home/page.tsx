@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import {
   InstructorHomeNavbar,
   HeroSection,
@@ -57,6 +59,17 @@ export default function InstructorHome() {
 
       {/* Student Feedback Section */}
       <StudentFeedback testimonials={testimonialData} />
+
+      {/* ChatBot Link - Fixed Position */}
+      <Link href="/chatbot" className="fixed right-10 bottom-10 z-30 group">
+        <Image
+          src="/images/my-courses/unsplash_d42U7dK0M9w.png"
+          alt="Go to ChatBot"
+          width={70}
+          height={70}
+          className="cursor-pointer hover:scale-110 transition-transform hover:shadow-2xl rounded-full shadow-lg animate-bounce"
+        />
+      </Link>
 
       {/* Footer */}
       <InstructorHomeFooter />

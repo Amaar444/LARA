@@ -22,7 +22,7 @@ export default function Home() {
           <Link href="/course-player" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
             Course Player
           </Link>
-          <Link href="/dashboard" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
+          <Link href="/student-dashboard" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
             Dashboard
           </Link>
           <Link href="/about" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
