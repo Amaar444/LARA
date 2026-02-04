@@ -139,12 +139,12 @@ export default function MyCoursesPage() {
       <main className="max-w-[1150px] mx-auto px-3 pt-8 pb-16">
 
         {/* ====== MOST POPULAR CATEGORIES ====== */}
-        <section className="mb-10">
-          <h2 className="text-2xl text-center mb-6">
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8">
             <span className="text-[#0b9152]">Most Popular</span> Categories
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { img: "unsplash_lUSFeh77gcs.png", title: "Machine Learning", desc: "120 Courses, 40,000 Learner" },
               { img: ",;.png", title: "Artificial Intelligence", desc: "150 Courses, 50,000 Learner" },
@@ -153,8 +153,8 @@ export default function MyCoursesPage() {
               { img: "lk.png", title: "Data Science", desc: "100 Courses, 35,000 Learner" },
               { img: "tg.png", title: "Mobile App Development", desc: "90 Courses, 30,000 Learner" },
             ].map((cat, idx) => (
-              <article key={idx} className="bg-[#fff6cf] rounded-2xl p-3.5 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
-                <div className="overflow-hidden rounded-xl mb-2.5">
+              <article key={idx} className="bg-gradient-to-br from-[#fff6cf] to-[#ffe9b9] rounded-2xl p-4 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer border border-orange-100">
+                <div className="overflow-hidden rounded-xl mb-3">
                   <Image
                     src={`/images/my-courses/${cat.img}`}
                     alt={cat.title}
@@ -171,8 +171,8 @@ export default function MyCoursesPage() {
         </section>
 
         {/* ====== OUR BEST INSTRUCTOR ====== */}
-        <section className="mb-10">
-          <h2 className="text-2xl text-center mb-6 text-[#0b9152]">Our Best Instructor</h2>
+        <section className="mb-12">
+          <h2 className="text-3xl font-bold text-center mb-8 text-[#0b9152]">Our Best Instructors</h2>
 
           <div className="flex items-center gap-2.5">
             <button className="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-lg border-none cursor-pointer hover:shadow-lg">
@@ -186,8 +186,8 @@ export default function MyCoursesPage() {
                 { img: "'p;.png", name: "Osama Mohammed", role: "Software engineer" },
                 { img: ",m.png", name: "Ehab Fayez", role: "UI/UX Designer" },
               ].map((inst, idx) => (
-                <article key={idx} className="min-w-[170px] max-w-[170px] bg-white rounded-2xl p-2.5 text-center shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer">
-                  <div className="overflow-hidden rounded-xl mb-2">
+                <article key={idx} className="min-w-[170px] max-w-[170px] bg-white rounded-2xl p-3 text-center shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 cursor-pointer border border-gray-100">
+                  <div className="overflow-hidden rounded-xl mb-2.5">
                     <Image
                       src={`/images/my-courses/${inst.img}`}
                       alt={inst.name}
@@ -209,8 +209,8 @@ export default function MyCoursesPage() {
         </section>
 
         {/* ====== STUDENT FEEDBACK ====== */}
-        <section className="bg-[#fff7d9] rounded-2xl px-4 py-6 relative mb-10">
-          <h2 className="text-2xl text-center mb-6">Student Feedback</h2>
+        <section className="bg-gradient-to-br from-[#fff7d9] to-[#ffe9b9] rounded-2xl px-4 py-8 relative mb-12 shadow-lg">
+          <h2 className="text-3xl font-bold text-center mb-8 text-[#0b9152]">Student Feedback</h2>
 
           <div className="flex items-center gap-2.5">
             <button className="w-8 h-8 rounded-full bg-white shadow-md flex items-center justify-center text-lg border-none cursor-pointer hover:shadow-lg">
@@ -220,10 +220,11 @@ export default function MyCoursesPage() {
             <div className="flex overflow-x-auto gap-3.5 scroll-smooth p-2" style={{ scrollbarWidth: "thin" }}>
               {[
                 {
-                  img: "Ellipse 70.png",
+                  img: "/images/Ellipse%2069%20(1).png",
                   name: "Fady Aziz",
                   role: "UI/UX Designer",
                   text: "Your teaching method and the program you're using to record this course are much, much better than the previous one...",
+                  useFullPath: true,
                 },
                 {
                   img: "Rectangle 25.png",
@@ -238,22 +239,22 @@ export default function MyCoursesPage() {
                   text: "This is exactly what I was looking for, very practical and easy to follow. Thanks for the great effort!",
                 },
               ].map((feedback, idx) => (
-                <article key={idx} className="min-w-[260px] max-w-[260px] bg-white rounded-2xl p-4 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-                  <div className="flex items-center gap-2.5 mb-3">
+                <article key={idx} className="min-w-[280px] max-w-[280px] bg-white rounded-2xl p-5 shadow-md hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-orange-100">
+                  <div className="flex items-center gap-3 mb-4">
                     <Image
-                      src={`/images/my-courses/${feedback.img}`}
+                      src={feedback.useFullPath ? feedback.img : `/images/my-courses/${feedback.img}`}
                       alt={feedback.name}
-                      width={40}
-                      height={40}
-                      className="rounded-full object-cover border-2 border-orange-200"
+                      width={50}
+                      height={50}
+                      className="rounded-full object-cover border-3 border-orange-300 shadow-md"
                     />
                     <div className="flex-1">
                       <h3 className="text-sm font-semibold">{feedback.name}</h3>
                       <p className="text-[11px] text-gray-600">{feedback.role}</p>
                     </div>
-                    <span className="text-3xl text-orange-400">"</span>
+                    <span className="text-4xl text-orange-400 font-serif">"</span>
                   </div>
-                  <p className="text-xs text-gray-700 leading-relaxed italic">{feedback.text}</p>
+                  <p className="text-sm text-gray-700 leading-relaxed italic">{feedback.text}</p>
                 </article>
               ))}
             </div>

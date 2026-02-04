@@ -20,7 +20,7 @@ const AdminNavbar: React.FC<AdminNavbarProps> = ({ activeTab }) => {
           onClick={() => setShowProfileMenu(!showProfileMenu)}
         >
           <Image
-            src="/images/Ellipse 69.png"
+            src="/images/Ellipse%2069.png"
             alt="Admin Profile"
             width={60}
             height={60}

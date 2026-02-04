@@ -258,7 +258,7 @@ export default function CoursesListPage() {
 
                 {/* View Details Button */}
                 <Link
-                  href="/course-detail"
+                  href={course.price === "free" ? "/course-detail-free" : "/course-detail-paid"}
                   className={`shimmer-btn no-underline w-full block py-3 px-6 rounded-xl text-white text-sm font-bold transform transition-all duration-300 shadow-lg ${hoveredCard === course.id ? 'shadow-xl scale-105' : ''}`}
                   style={{ 
                     boxShadow: hoveredCard === course.id 

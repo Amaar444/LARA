@@ -3,69 +3,68 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { FaStar, FaStarHalfAlt, FaRegStar, FaClock, FaGlobe, FaUser, FaPlay, FaChevronUp, FaChevronDown, FaArrowLeft } from "react-icons/fa";
+import { FaStar, FaClock, FaGlobe, FaUser, FaPlay, FaChevronUp, FaChevronDown, FaArrowLeft } from "react-icons/fa";
 
-const courseLessons = [
+const courseContent = [
   {
     id: 1,
-    title: "Design System-part1",
-    subtitle: "Foundations",
-    thumbnail: "/images/detail_push/image%205.png",
+    title: "UI Design Course - Episode 7",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 9.png",
   },
   {
     id: 2,
-    title: "Design System-part2",
-    subtitle: "Text Field",
-    thumbnail: "/images/detail_push/image%206.png",
+    title: "UI Design Course - Episode 8",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 10.png",
   },
   {
     id: 3,
-    title: "Design System-part3",
-    subtitle: "Button",
-    thumbnail: "/images/detail_push/image%206%20(1).png",
+    title: "UI Design Course - Episode 9",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 11.png",
   },
   {
     id: 4,
-    title: "Design System-part4",
-    subtitle: "Dropdown",
-    thumbnail: "/images/detail_push/image%206%20(2).png",
+    title: "UI Design Course - Episode 10",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 12.png",
   },
   {
     id: 5,
-    title: "Design System-part5",
-    subtitle: "Checkboxes& Radio Button",
-    thumbnail: "/images/detail_push/image%208.png",
+    title: "UI Design Course - Colors",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 16.png",
   },
   {
     id: 6,
-    title: "Design System-part6",
-    subtitle: "Pattern Library",
-    thumbnail: "/images/detail_push/image%205%20(1).png",
+    title: "UI Design Course - Typography",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 17.png",
+  },
+  {
+    id: 7,
+    title: "UI Design Course - Spacing",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 9.png",
+  },
+  {
+    id: 8,
+    title: "UI Design Course - Episode 3",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 10.png",
+  },
+  {
+    id: 9,
+    title: "UI Design Course - Episode 4",
+    subtitle: "From Zero to Professional",
+    thumbnail: "/images/m/image 11.png",
   },
 ];
 
-export default function CourseDetailPaidPage() {
+export default function CourseDetailFreePage() {
   const [showAllContent, setShowAllContent] = useState(false);
-  const displayedContent = showAllContent ? courseLessons : courseLessons.slice(0, 5);
-
-  // Render stars based on rating
-  const renderStars = (rating: number) => {
-    const stars = [];
-    const fullStars = Math.floor(rating);
-    const hasHalfStar = rating % 1 >= 0.5;
-    
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(<FaStar key={`full-${i}`} className="text-yellow-400" />);
-    }
-    if (hasHalfStar) {
-      stars.push(<FaStarHalfAlt key="half" className="text-yellow-400" />);
-    }
-    const remainingStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
-    for (let i = 0; i < remainingStars; i++) {
-      stars.push(<FaRegStar key={`empty-${i}`} className="text-yellow-400" />);
-    }
-    return stars;
-  };
+  const displayedContent = showAllContent ? courseContent : courseContent.slice(0, 5);
 
   return (
     <div 
@@ -206,7 +205,7 @@ export default function CourseDetailPaidPage() {
           <div className="animate-fadeInLeft stagger-1">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl group cursor-pointer">
               <Image
-                src="/images/detail_push/Frame%201984078412.png"
+                src="/images/Frame%201984078275.png"
                 alt="Course Preview"
                 width={600}
                 height={340}
@@ -218,21 +217,16 @@ export default function CourseDetailPaidPage() {
                   <FaPlay className="text-orange-500 text-2xl ml-1" />
                 </div>
               </div>
-              {/* Badge */}
+              {/* Figma Badge */}
               <div className="absolute top-4 left-4 bg-white/90 rounded-lg p-2 shadow-md">
-                <span className="text-gray-700 font-bold text-sm">Lorem Ipsum</span>
+                <span className="text-purple-600 font-bold text-sm">🎨 Figma</span>
               </div>
             </div>
           </div>
 
           {/* Course Info */}
           <div className="animate-fadeInRight stagger-2">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">Design System</h1>
-            
-            <p className="text-gray-600 italic mb-6 leading-relaxed">
-              This course takes you step by step from the basics of interface design to building 
-              interactive prototypes and complete design systems.
-            </p>
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">UI Design</h1>
             
             <div className="space-y-4 mb-6">
               <div className="flex items-center gap-3">
@@ -244,21 +238,28 @@ export default function CourseDetailPaidPage() {
               <div className="flex items-center gap-3">
                 <FaUser className="text-orange-500 text-lg" />
                 <span className="text-gray-600">Instructors:</span>
-                <span className="font-semibold text-gray-800">Islam Hefne</span>
+                <span className="font-semibold text-gray-800">Ehab Fayez</span>
               </div>
               
               <div className="flex items-center gap-3">
                 <FaClock className="text-orange-500 text-lg" />
                 <span className="text-gray-600">Course duration:</span>
-                <span className="font-semibold text-gray-800">2 hours</span>
+                <span className="font-semibold text-gray-800">30 hours</span>
               </div>
               
               <div className="flex items-center gap-2">
-                <div className="flex text-lg">
-                  {renderStars(4.27)}
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <FaStar key={star} className="text-yellow-400 text-lg" />
+                  ))}
                 </div>
-                <span className="font-bold text-gray-800 ml-2">4.27</span>
+                <span className="font-bold text-gray-800 ml-2">5</span>
               </div>
+            </div>
+
+            {/* Free Badge */}
+            <div className="inline-block bg-green-500 text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg animate-pulse-slow">
+              🎉 FREE COURSE
             </div>
           </div>
         </section>
@@ -268,8 +269,8 @@ export default function CourseDetailPaidPage() {
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100">
             <h2 className="text-xl font-bold text-gray-800 mb-3">About the Instructor</h2>
             <p className="text-gray-600 italic leading-relaxed">
-              Islam Hefney is a skilled instructor specializing in UI/UX design. He shares practical 
-              tips and tutorials to help students improve their design and prototyping skills.
+              Ehab Fayez is a UI Designer and digital creator who provides practical tutorials on 
+              user interface design using Figma
             </p>
           </div>
         </section>
@@ -281,7 +282,7 @@ export default function CourseDetailPaidPage() {
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100">
               <div className="flex items-center justify-between mb-6">
                 <h2 className="text-2xl font-bold text-gray-800">Course Content</h2>
-                <span className="text-sm text-gray-500">{courseLessons.length} lessons</span>
+                <span className="text-sm text-gray-500">{courseContent.length} lessons</span>
               </div>
 
               {/* Scroll Indicator Up */}
@@ -302,14 +303,6 @@ export default function CourseDetailPaidPage() {
                     className={`flex gap-4 p-3 rounded-xl bg-gradient-to-r from-orange-50 to-amber-50 hover:from-orange-100 hover:to-amber-100 transition-all duration-300 cursor-pointer group animate-fadeInUp stagger-${Math.min(index + 1, 9)}`}
                     style={{ animationDelay: `${0.1 * (index + 1)}s` }}
                   >
-                    {/* Lesson Info */}
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-gray-800 text-sm mb-1 group-hover:text-orange-600 transition-colors">
-                        {lesson.title}
-                      </h3>
-                      <p className="text-xs text-gray-500">{lesson.subtitle}</p>
-                    </div>
-
                     {/* Lesson Thumbnail */}
                     <div className="relative w-28 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-md">
                       <Image
@@ -321,6 +314,14 @@ export default function CourseDetailPaidPage() {
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors flex items-center justify-center">
                         <FaPlay className="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity" />
                       </div>
+                    </div>
+
+                    {/* Lesson Info */}
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-gray-800 text-sm mb-1 group-hover:text-orange-600 transition-colors">
+                        {lesson.title}
+                      </h3>
+                      <p className="text-xs text-gray-500">{lesson.subtitle}</p>
                     </div>
                   </div>
                 ))}
@@ -338,42 +339,37 @@ export default function CourseDetailPaidPage() {
             </div>
           </div>
 
-          {/* Comment & Price Section */}
+          {/* Comment & Start Course */}
           <div className="animate-fadeInRight stagger-5">
             {/* Comment Section */}
             <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-orange-100 mb-6">
               <h2 className="text-xl font-bold text-gray-800 mb-4">Comment</h2>
               
-              <div className="flex items-center justify-end gap-3 mb-3">
-                <span className="font-semibold text-gray-800">Metwali</span>
+              <div className="flex items-start gap-3">
                 <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-orange-200 shadow-md">
                   <Image
-                    src="/images/detail_push/Ellipse%2070.png"
-                    alt="Metwali"
+                    src="/images/m/amm.jpeg"
+                    alt="Student"
                     fill
                     className="object-cover"
                   />
                 </div>
+                <div className="flex-1">
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    This is exactly what I was expecting from you, Mr. Zero. I hope you will offer a Django course. 
+                    With sincere thanks and prayers for the benefit you provide us.
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600 text-sm leading-relaxed">
-                Thank you, engineer, for the high quality of the explanation and filming.
-              </p>
             </div>
 
-            {/* Price Card */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border-2 border-orange-200">
-              <div className="text-center mb-6">
-                <span className="text-gray-600 font-medium">Price:</span>
-                <span className="text-3xl font-bold text-orange-500 ml-2">19,99 $</span>
-              </div>
-              
-              <Link
-                href="/payment"
-                className="shimmer-btn block w-full py-4 px-8 rounded-xl text-white text-lg font-bold text-center shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
-              >
-                Enroll Now
-              </Link>
-            </div>
+            {/* Start Course Button */}
+            <Link
+              href="/course-player"
+              className="shimmer-btn block w-full py-4 px-8 rounded-xl text-white text-lg font-bold text-center shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300"
+            >
+              Start the course
+            </Link>
           </div>
         </section>
       </main>
