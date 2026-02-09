@@ -117,7 +117,7 @@ export default function LoginPage() {
                 {/* Forgot Password */}
                 <div className="text-right animate-slideUp" style={{ animationDelay: "0.3s" }}>
                   <Link 
-                    href="#" 
+                    href="/forgot-password" 
                     className="text-xs text-gray-500 hover:text-orange-500 transition-colors underline underline-offset-2"
                   >
                     Forgot your password?
