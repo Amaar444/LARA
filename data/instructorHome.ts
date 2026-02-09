@@ -2,19 +2,19 @@ export const instructorCoursesData = [
   {
     id: 1,
     title: "UI Design",
-    imageUrl: "/images/my-courses/image 13.png",
+    imageUrl: "/images/Frame 1984078275.png",
     level: "Advanced" as const,
   },
   {
     id: 2,
     title: "Adobe XD",
-    imageUrl: "/images/my-courses/lk.png",
+    imageUrl: "/images/image 15 (1).png",
     level: "Beginner" as const,
   },
   {
     id: 3,
     title: "UX Trends",
-    imageUrl: "/images/my-courses/io.png",
+    imageUrl: "/images/Rectangle 4397.png",
     level: "Advanced" as const,
   },
 ];

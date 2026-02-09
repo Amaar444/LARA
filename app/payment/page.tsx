@@ -5,6 +5,9 @@ import Link from "next/link";
 import { FaArrowLeft, FaCreditCard, FaLock, FaCheckCircle } from "react-icons/fa";
 
 export default function PaymentPage() {
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
+  
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -23,8 +26,13 @@ export default function PaymentPage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Payment Successful! Redirecting to course...");
-    window.location.href = "/course-player";
+    setIsProcessing(true);
+    
+    // Simulate payment processing
+    setTimeout(() => {
+      setIsProcessing(false);
+      setShowSuccessModal(true);
+    }, 1500);
   };
 
   return (
@@ -116,9 +124,42 @@ export default function PaymentPage() {
         .stagger-2 { animation-delay: 0.2s; opacity: 0; }
         .stagger-3 { animation-delay: 0.3s; opacity: 0; }
         .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-6 { animation-delay: 0.6s; opacity: 0; }
+        .stagger-7 { animation-delay: 0.7s; opacity: 0; }
+        .stagger-8 { animation-delay: 0.8s; opacity: 0; }
         input:focus {
           border-color: #f59e0b;
           box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+        @keyframes scaleIn {
+          from {
+            opacity: 0;
+            transform: scale(0.8);
+          }
+          to {
+            opacity: 1;
+            transform: scale(1);
+          }
+        }
+        @keyframes confetti {
+          0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+          }
+          100% {
+            transform: translateY(100vh) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        .animate-scaleIn {
+          animation: scaleIn 0.4s ease-out forwards;
+        }
+        .confetti {
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          animation: confetti 3s linear forwards;
         }
       `}</style>
 
@@ -233,10 +274,23 @@ export default function PaymentPage() {
               <div className="pt-4 animate-fadeInUp stagger-7">
                 <button
                   type="submit"
-                  className="shimmer-btn w-full py-4 rounded-xl text-white text-lg font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2"
+                  disabled={isProcessing}
+                  className="shimmer-btn w-full py-4 rounded-xl text-white text-lg font-bold shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <FaLock className="text-sm" />
-                  Pay now
+                  {isProcessing ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Processing...
+                    </>
+                  ) : (
+                    <>
+                      <FaLock className="text-sm" />
+                      Pay now
+                    </>
+                  )}
                 </button>
               </div>
 
@@ -299,6 +353,77 @@ export default function PaymentPage() {
 
         </div>
       </div>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <>
+          {/* Backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 animate-fadeInUp"
+            onClick={() => setShowSuccessModal(false)}
+          />
+          
+          {/* Confetti Effect */}
+          <div className="fixed inset-0 pointer-events-none z-50">
+            {[...Array(30)].map((_, i) => (
+              <div
+                key={i}
+                className="confetti"
+                style={{
+                  left: `${Math.random() * 100}%`,
+                  top: `-${Math.random() * 20}px`,
+                  backgroundColor: ['#ff6b6b', '#feca57', '#48dbfb', '#ff9ff3', '#54a0ff'][Math.floor(Math.random() * 5)],
+                  animationDelay: `${Math.random() * 0.5}s`,
+                  animationDuration: `${2 + Math.random() * 2}s`
+                }}
+              />
+            ))}
+          </div>
+
+          {/* Modal */}
+          <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 text-center animate-scaleIn relative overflow-hidden">
+              {/* Decorative Gradient Top */}
+              <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-orange-400 via-amber-400 to-yellow-400" />
+              
+              {/* Success Icon */}
+              <div className="mb-6 relative">
+                <div className="w-24 h-24 mx-auto bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-lg animate-bounce" style={{ animationDuration: '1s', animationIterationCount: '3' }}>
+                  <FaCheckCircle className="text-white text-5xl" />
+                </div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-24 bg-green-400/30 rounded-full animate-ping" />
+              </div>
+
+              {/* Success Message */}
+              <h2 className="text-3xl font-bold text-gray-800 mb-2 flex items-center justify-center gap-2">
+                Payment successfully
+                <span className="text-4xl animate-bounce" style={{ animationDuration: '0.6s' }}>🎉</span>
+              </h2>
+              
+              <p className="text-gray-600 mb-8 text-sm">
+                Your enrollment is confirmed! Get ready to start learning.
+              </p>
+
+              {/* Action Button */}
+              <Link
+                href="/course-player"
+                className="inline-block w-full py-4 px-8 bg-gradient-to-r from-orange-500 to-amber-500 text-white text-lg font-bold rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 active:scale-95 transition-all duration-300 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Start the course now</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-amber-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </Link>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowSuccessModal(false)}
+                className="mt-4 text-sm text-gray-500 hover:text-gray-700 transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

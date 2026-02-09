@@ -246,65 +246,95 @@ export default function AboutPage() {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <footer 
-        className="text-white py-6 px-0 pb-4"
-        style={{ background: "linear-gradient(to right, #ffb864, #ff9c52)" }}
-      >
-        {/* Top */}
-        <div className="max-w-[1200px] mx-auto px-4 pb-3 flex flex-col md:flex-row items-start md:items-center justify-between border-b border-white/40 gap-3">
-          <div className="flex items-center gap-2">
-            <Image src="/images/about/logo.png" alt="LARA logo" width={60} height={60} />
+      <footer className="px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+        {/* Top Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8 fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
+          <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
+            <Image src="/images/my-courses/logo.png" alt="LARA" width={70} height={70} className="hover:scale-105 transition-transform duration-300 rounded-lg" />
           </div>
-
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-4 md:gap-6 text-sm font-semibold">
-            <div className="flex items-center gap-2 text-black">
-              <Image src="/images/about/nm.png" alt="Phone" width={20} height={20} />
-              <span>Phone:</span>
-              <span className="text-white font-medium ml-1">+123 456 789</span>
+          
+          {/* Social Icons */}
+          <div className="flex gap-3">
+            <div className="social-btn w-11 h-11 bg-[#d98a47] rounded-full flex items-center justify-center">
+              <span className="text-white font-bold">f</span>
             </div>
-            <div className="flex items-center gap-2 text-black">
-              <Image src="/images/about/Overlay+Border.png" alt="Email" width={20} height={20} />
-              <span>Email:</span>
-              <span className="text-white font-medium ml-1">info@gmail.com</span>
+            <div className="social-btn w-11 h-11 bg-[#d98a47] rounded-full flex items-center justify-center">
+              <span className="text-white font-bold">𝕏</span>
+            </div>
+            <div className="social-btn w-11 h-11 bg-[#d98a47] rounded-full flex items-center justify-center">
+              <span className="text-white font-bold">in</span>
+            </div>
+            <div className="social-btn w-11 h-11 bg-[#d98a47] rounded-full flex items-center justify-center">
+              <span className="text-white">📷</span>
+            </div>
+            <div className="social-btn w-11 h-11 bg-[#d98a47] rounded-full flex items-center justify-center">
+              <span className="text-white">▶️</span>
             </div>
           </div>
         </div>
 
-        {/* Columns */}
-        <div className="max-w-[1200px] mx-auto mt-3 mb-2.5 px-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr] gap-6 lg:gap-10 text-sm font-bold text-black">
-          <div>
-            <p className="leading-relaxed">
-              An innovative educational platform offering smart courses to enhance your skills.
-            </p>
+        {/* Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+          {/* Quick Links */}
+          <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
+            <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">
+              <span className="text-xl">🚀</span> Quick Links
+            </h4>
+            <ul className="space-y-2 text-sm text-[#5D4E37]">
+              <li className="footer-link"><Link href="/">Home</Link></li>
+              <li className="footer-link"><Link href="/courses">All Courses</Link></li>
+              <li className="footer-link"><Link href="#">Instructors</Link></li>
+              <li className="footer-link"><Link href="/about">About Us</Link></li>
+            </ul>
           </div>
 
-          <div>
-            <p className="font-bold mb-2">Quick Links</p>
-            <Link href="#" className="block text-black no-underline mb-1">• Home</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• Courses</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• About LARA</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• Instructors</Link>
+          {/* Support */}
+          <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.3s', opacity: 0 }}>
+            <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">
+              <span className="text-xl">💬</span> Support
+            </h4>
+            <ul className="space-y-2 text-sm text-[#5D4E37]">
+              <li className="footer-link"><Link href="#">Help Center</Link></li>
+              <li className="footer-link"><Link href="#">Contact Us</Link></li>
+              <li className="footer-link"><Link href="#">Privacy Policy</Link></li>
+              <li className="footer-link"><Link href="#">Terms of Use</Link></li>
+            </ul>
           </div>
 
-          <div>
-            <p className="font-bold mb-2">Support</p>
-            <Link href="#" className="block text-black no-underline mb-1">• Contact Us</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• FAQ</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• Privacy</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• Terms</Link>
+          {/* Account */}
+          <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.4s', opacity: 0 }}>
+            <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">
+              <span className="text-xl">👤</span> Account
+            </h4>
+            <ul className="space-y-2 text-sm text-[#5D4E37]">
+              <li className="footer-link"><Link href="/profile">My Profile</Link></li>
+              <li className="footer-link"><Link href="/my-courses">My Courses</Link></li>
+              <li className="footer-link"><Link href="#">Settings</Link></li>
+              <li className="footer-link"><Link href="/login">Sign Out</Link></li>
+            </ul>
           </div>
 
-          <div>
-            <p className="font-bold mb-2">Your Account</p>
-            <Link href="#" className="block text-black no-underline mb-1">• Profile</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• Settings</Link>
-            <Link href="#" className="block text-black no-underline mb-1">• Logout</Link>
+          {/* Contact */}
+          <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.5s', opacity: 0 }}>
+            <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">
+              <span className="text-xl">📞</span> Contact
+            </h4>
+            <div className="space-y-3 text-sm text-[#5D4E37]">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">📱</span>
+                <span>+123 456 789</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-lg">✉️</span>
+                <span>info@lara.com</span>
+              </div>
+            </div>
           </div>
         </div>
 
         {/* Bottom */}
-        <div className="text-center text-[13px] mt-2">
-          © 2025 LARA — All rights reserved
+        <div className="border-t border-white/30 pt-5 flex flex-col md:flex-row justify-between items-center gap-3 fade-up" style={{ animationDelay: '0.6s', opacity: 0 }}>
+          <p className="text-sm text-[#5D4E37] font-medium">© 2025 LARA Platform - All Rights Reserved</p>
         </div>
       </footer>
     </div>
