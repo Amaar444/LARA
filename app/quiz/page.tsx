@@ -389,14 +389,24 @@ export default function QuizPage() {
               Don&apos;t worry! Practice makes perfect. Review the material and try again.
             </p>
 
-            {/* Retry Button */}
-            <button
-              onClick={() => window.location.reload()}
-              className="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white font-bold text-xl py-4 px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
-            >
-              <span className="relative z-10">Take Quiz Again</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
-            </button>
+            {/* Action Buttons */}
+            <div className="flex gap-4 mb-4">
+              <button
+                onClick={() => window.location.reload()}
+                className="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white font-bold text-xl py-4 px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Take Quiz Again</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </button>
+
+              <Link
+                href="/course-player"
+                className="inline-block bg-gradient-to-r from-blue-500 to-blue-400 text-white font-bold text-xl py-4 px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
+              >
+                <span className="relative z-10">Go To Again Course</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+              </Link>
+            </div>
 
             {/* Progress Indicator */}
             <div className="mt-8 animate-fadeIn stagger-delay-4">
