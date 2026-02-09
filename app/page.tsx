@@ -12,24 +12,6 @@ export default function Home() {
           <Image src="/images/logo.jpg" alt="LARA Logo" width={65} height={65} className="rounded-full shadow-md" />
         </div>
 
-        <nav className="flex gap-6 text-sm">
-          <Link href="/" className="text-gray-800 font-semibold border-b-2 border-gray-800 pb-1 hover:text-orange-600 transition-colors">
-            Home
-          </Link>
-          <Link href="/courses" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
-            Recommended Courses
-          </Link>
-          <Link href="/course-player" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
-            Course Player
-          </Link>
-          <Link href="/student-dashboard" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
-            Dashboard
-          </Link>
-          <Link href="/about" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
-            About
-          </Link>
-        </nav>
-
         <div className="flex items-center gap-4">
           <Link href="/login" className="text-gray-800 text-sm hover:text-orange-600 transition-colors font-medium">
             Log In

@@ -342,25 +342,21 @@ export default function ProfilePage() {
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact */}
           <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.5s', opacity: 0 }}>
             <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">
-              <span className="text-xl">📧</span> Contact
+              <span className="text-xl">📞</span> Contact
             </h4>
-            <ul className="space-y-2 text-sm text-[#5D4E37]">
-              <li className="flex items-start gap-2">
-                <span className="font-semibold">Email:</span>
-                <span>info@lara.edu</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-semibold">Phone:</span>
-                <span>+1 234 567 890</span>
-              </li>
-              <li className="flex items-start gap-2">
-                <span className="font-semibold">Address:</span>
-                <span>123 Learning St, Education City</span>
-              </li>
-            </ul>
+            <div className="space-y-3 text-sm text-[#5D4E37]">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">📱</span>
+                <span>+123 456 789</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="text-lg">✉️</span>
+                <span>info@lara.com</span>
+              </div>
+            </div>
           </div>
         </div>
 
