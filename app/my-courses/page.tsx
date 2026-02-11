@@ -30,7 +30,7 @@ export default function MyCoursesPage() {
 
         {/* Nav */}
         <nav className="hidden md:flex gap-5 text-sm">
-          <Link href="/" className="text-gray-800 font-semibold border-b-2 border-gray-800 pb-0.5">
+          <Link href="/my-courses" className="text-gray-800 font-semibold border-b-2 border-gray-800 pb-0.5">
             Home
           </Link>
           <Link href="/student-dashboard" className="text-gray-800 hover:font-semibold">
