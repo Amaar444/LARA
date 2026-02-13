@@ -4,6 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { FaUser, FaLock, FaEye, FaEyeSlash, FaFacebook, FaGoogle, FaGlobe } from "react-icons/fa";
+import GoogleSignInModal from "@/components/auth/GoogleSignInModal";
+import FacebookSignInModal from "@/components/auth/FacebookSignInModal";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -11,6 +13,8 @@ export default function LoginPage() {
   const [role, setRole] = useState("student");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [showGoogleModal, setShowGoogleModal] = useState(false);
+  const [showFacebookModal, setShowFacebookModal] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,6 +23,40 @@ export default function LoginPage() {
     // Simulate loading
     setTimeout(() => {
       // Redirect based on role
+      if (role === "admin") {
+        window.location.href = "/admin-dashboard";
+      } else if (role === "instructor") {
+        window.location.href = "/instructor-home";
+      } else {
+        window.location.href = "/my-courses";
+      }
+    }, 800);
+  };
+
+  const handleGoogleSignIn = (accountEmail: string) => {
+    // Simulate Google sign-in
+    setIsLoading(true);
+    console.log("Signing in with Google account:", accountEmail);
+    
+    setTimeout(() => {
+      // Redirect based on role (default to student for Google sign-in)
+      if (role === "admin") {
+        window.location.href = "/admin-dashboard";
+      } else if (role === "instructor") {
+        window.location.href = "/instructor-home";
+      } else {
+        window.location.href = "/my-courses";
+      }
+    }, 800);
+  };
+
+  const handleFacebookSignIn = (accountName: string) => {
+    // Simulate Facebook sign-in
+    setIsLoading(true);
+    console.log("Signing in with Facebook account:", accountName);
+    
+    setTimeout(() => {
+      // Redirect based on role (default to student for Facebook sign-in)
       if (role === "admin") {
         window.location.href = "/admin-dashboard";
       } else if (role === "instructor") {
@@ -156,11 +194,17 @@ export default function LoginPage() {
 
                 {/* Social Buttons */}
                 <div className="flex justify-center gap-4 animate-slideUp" style={{ animationDelay: "0.45s" }}>
-                  <button className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:shadow-md hover:scale-105 transition-all duration-300 group">
+                  <button 
+                    onClick={() => setShowFacebookModal(true)}
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-600 hover:border-blue-500 hover:text-blue-600 hover:shadow-md hover:scale-105 transition-all duration-300 group"
+                  >
                     <FaFacebook className="text-blue-600 group-hover:scale-110 transition-transform" />
                     Facebook
                   </button>
-                  <button className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-600 hover:border-red-400 hover:text-red-500 hover:shadow-md hover:scale-105 transition-all duration-300 group">
+                  <button 
+                    onClick={() => setShowGoogleModal(true)}
+                    className="flex items-center gap-2 px-6 py-2.5 rounded-full border-2 border-gray-200 bg-white text-sm text-gray-600 hover:border-red-400 hover:text-red-500 hover:shadow-md hover:scale-105 transition-all duration-300 group"
+                  >
                     <FaGoogle className="text-red-500 group-hover:scale-110 transition-transform" />
                     Google
                   </button>
@@ -196,6 +240,20 @@ export default function LoginPage() {
           </div>
         </div>
       </div>
+
+      {/* Google Sign-In Modal */}
+      <GoogleSignInModal
+        isOpen={showGoogleModal}
+        onClose={() => setShowGoogleModal(false)}
+        onContinue={handleGoogleSignIn}
+      />
+
+      {/* Facebook Sign-In Modal */}
+      <FacebookSignInModal
+        isOpen={showFacebookModal}
+        onClose={() => setShowFacebookModal(false)}
+        onContinue={handleFacebookSignIn}
+      />
     </div>
   );
 }
