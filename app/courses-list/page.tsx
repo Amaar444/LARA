@@ -177,7 +177,7 @@ export default function CoursesListPage() {
               <div className="w-12 h-12 rounded-full bg-white/40 flex items-center justify-center animate-float">
                 <FaRocket className="text-2xl text-orange-600" />
               </div>
-              <h2 className="text-[32px] font-bold text-gray-800">
+              <h2 className="text-2xl md:text-[32px] font-bold text-gray-800">
                 Recommended Courses for You
               </h2>
             </div>
@@ -187,7 +187,7 @@ export default function CoursesListPage() {
           </div>
 
           {/* Stats Bar */}
-          <div className="flex justify-center gap-6 mt-6 animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-6 mt-6 animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
             <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-5 py-2.5 rounded-full shadow-md">
               <FaCheckCircle className="text-green-500" />
               <span className="text-sm font-semibold text-gray-700">6 Courses Found</span>

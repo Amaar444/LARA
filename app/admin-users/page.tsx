@@ -77,7 +77,7 @@ export default function AdminUsersPage() {
       <AdminNavbar activeTab="user-management" />
 
       {/* Main Content */}
-      <main className="px-8 py-6 max-w-6xl mx-auto">
+      <main className="px-4 md:px-8 py-6 max-w-6xl mx-auto">
         {/* Header with Create Button */}
         <div className="flex justify-end mb-6">
           <button

@@ -35,7 +35,7 @@ export default function AdminProfilePage() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       {/* Back Button */}
-      <div className="px-8 py-6 animate-slideDown">
+      <div className="px-4 md:px-8 py-4 md:py-6 animate-slideDown">
         <Link 
           href="/admin-dashboard"
           className="inline-flex items-center gap-2 text-gray-700 hover:text-orange-600 transition-colors group"
@@ -46,7 +46,7 @@ export default function AdminProfilePage() {
       </div>
 
       {/* Main Content */}
-      <main className="flex-1 px-8 pb-12 max-w-3xl mx-auto w-full">
+      <main className="flex-1 px-4 md:px-8 pb-12 max-w-3xl mx-auto w-full">
         <form onSubmit={handleSubmit}>
           {/* Profile Image */}
           <div className="mb-8 animate-slideUp" style={{ animationDelay: "0.1s" }}>

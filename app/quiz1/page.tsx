@@ -17,7 +17,7 @@ export default function Quiz1Page() {
   const progress = (question.questionNumber / question.totalQuestions) * 100;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center p-8">
+    <div className="min-h-screen bg-gradient-to-br from-orange-100 to-yellow-100 flex items-center justify-center p-4 md:p-8">
       <div className="w-full max-w-3xl">
         {/* Top Bar */}
         <div className="flex justify-between items-center mb-6 text-gray-700 font-medium">
@@ -28,7 +28,7 @@ export default function Quiz1Page() {
         </div>
 
         {/* Quiz Card */}
-        <div className="bg-white rounded-2xl shadow-2xl p-10">
+        <div className="bg-white rounded-2xl shadow-2xl p-5 md:p-10">
           <h2 className="text-2xl font-bold text-gray-900 mb-6">{question.text}</h2>
 
           {/* Progress Bar - Full */}
@@ -60,7 +60,7 @@ export default function Quiz1Page() {
           <div className="flex justify-center">
             <Link
               href="/quiz-result"
-              className="px-12 py-4 rounded-lg font-semibold text-lg bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] text-gray-800 hover:opacity-90 transition-opacity"
+              className="px-8 md:px-12 py-3 md:py-4 rounded-lg font-semibold text-lg bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] text-gray-800 hover:opacity-90 transition-opacity"
             >
               Finish
             </Link>

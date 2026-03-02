@@ -223,20 +223,20 @@ export default function QuizPage() {
             <div className="absolute top-1/2 left-10 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse-custom" style={{ animationDelay: '0.5s' }} />
           </div>
 
-          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-12 max-w-xl w-full text-center relative animate-scaleIn">
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 max-w-xl w-full text-center relative animate-scaleIn">
             {/* Decorative Corner */}
-            <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-green-400 rounded-tl-3xl" />
-            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-green-400 rounded-br-3xl" />
+            <div className="absolute top-0 left-0 w-16 h-16 md:w-20 md:h-20 border-t-4 border-l-4 border-green-400 rounded-tl-3xl" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 md:w-20 md:h-20 border-b-4 border-r-4 border-green-400 rounded-br-3xl" />
             
             {/* Score Icon */}
             <div className="mb-6 animate-bounce-custom">
-              <div className="text-7xl">
+              <div className="text-5xl md:text-7xl">
                 {score === quizQuestions.length ? "🎉" : "👍"}
               </div>
             </div>
 
             {/* Final Score */}
-            <h1 className="text-4xl font-bold text-gray-900 mb-4 animate-slideDown stagger-delay-1">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 animate-slideDown stagger-delay-1">
               Your Final Score: <span className="text-green-600">{score}/ {quizQuestions.length}</span>
             </h1>
 
@@ -359,10 +359,10 @@ export default function QuizPage() {
             <div className="absolute top-1/2 left-10 w-24 h-24 bg-white/5 rounded-full blur-xl animate-pulse-custom" style={{ animationDelay: '0.5s' }} />
           </div>
 
-          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-12 max-w-xl w-full text-center relative animate-scaleIn">
+          <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-12 max-w-xl w-full text-center relative animate-scaleIn">
             {/* Decorative Corner */}
-            <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-orange-400 rounded-tl-3xl" />
-            <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-orange-400 rounded-br-3xl" />
+            <div className="absolute top-0 left-0 w-16 h-16 md:w-20 md:h-20 border-t-4 border-l-4 border-orange-400 rounded-tl-3xl" />
+            <div className="absolute bottom-0 right-0 w-16 h-16 md:w-20 md:h-20 border-b-4 border-r-4 border-orange-400 rounded-br-3xl" />
             
             {/* Score Icon */}
             <div className="mb-6 animate-shake">
@@ -370,7 +370,7 @@ export default function QuizPage() {
             </div>
 
             {/* Final Score */}
-            <h1 className="text-4xl font-bold text-gray-900 mb-4 animate-slideDown stagger-delay-1">
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-900 mb-4 animate-slideDown stagger-delay-1">
               Your Final Score: <span className="text-orange-600">{score}/ {quizQuestions.length}</span>
             </h1>
 
@@ -390,10 +390,10 @@ export default function QuizPage() {
             </p>
 
             {/* Action Buttons */}
-            <div className="flex gap-4 mb-4">
+            <div className="flex flex-col sm:flex-row gap-4 mb-4">
               <button
                 onClick={() => window.location.reload()}
-                className="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white font-bold text-xl py-4 px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
+                className="inline-block bg-gradient-to-r from-orange-500 to-orange-400 text-white font-bold text-base md:text-xl py-3 md:py-4 px-8 md:px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
               >
                 <span className="relative z-10">Take Quiz Again</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-600 to-orange-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -401,7 +401,7 @@ export default function QuizPage() {
 
               <Link
                 href="/course-player"
-                className="inline-block bg-gradient-to-r from-blue-500 to-blue-400 text-white font-bold text-xl py-4 px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
+                className="inline-block bg-gradient-to-r from-blue-500 to-blue-400 text-white font-bold text-base md:text-xl py-3 md:py-4 px-8 md:px-12 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-300 animate-slideDown stagger-delay-4 relative overflow-hidden group"
               >
                 <span className="relative z-10">Go To Again Course</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-blue-500 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
@@ -501,10 +501,10 @@ export default function QuizPage() {
         </div>
 
         {/* Quiz Card */}
-        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-10 relative animate-scaleIn">
+        <div className="bg-white/95 backdrop-blur-sm rounded-3xl shadow-2xl p-6 md:p-10 relative animate-scaleIn">
           {/* Decorative Corner */}
-          <div className="absolute top-0 left-0 w-20 h-20 border-t-4 border-l-4 border-orange-400 rounded-tl-3xl" />
-          <div className="absolute bottom-0 right-0 w-20 h-20 border-b-4 border-r-4 border-orange-400 rounded-br-3xl" />
+          <div className="absolute top-0 left-0 w-16 h-16 md:w-20 md:h-20 border-t-4 border-l-4 border-orange-400 rounded-tl-3xl" />
+          <div className="absolute bottom-0 right-0 w-16 h-16 md:w-20 md:h-20 border-b-4 border-r-4 border-orange-400 rounded-br-3xl" />
           
           <h2 className="text-2xl font-bold text-gray-900 mb-6">
             {quizQuestions[currentQuestion].question}

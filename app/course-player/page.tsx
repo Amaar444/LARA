@@ -37,6 +37,7 @@ const comments = [
 
 export default function CoursePlayerPage() {
   const [showProfileMenu, setShowProfileMenu] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
   const [commentText, setCommentText] = useState("");
 
   return (
@@ -71,25 +72,25 @@ export default function CoursePlayerPage() {
 
       {/* ===== NAVBAR ===== */}
       <header 
-        className="h-[70px] sticky top-0 z-50 flex items-center justify-between px-9 shadow-lg animate-fadeInDown"
+        className="h-[60px] md:h-[70px] sticky top-0 z-50 flex items-center justify-between px-4 md:px-9 shadow-lg animate-fadeInDown"
         style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}
       >
         {/* Left - Logo & Search */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           <Link href="/" className="hover:scale-105 transition-transform">
-            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg" />
+            <Image src="/images/about/logo.png" alt="LARA logo" width={45} height={45} className="rounded-lg md:w-[55px] md:h-[55px]" />
           </Link>
-          <div className="search-box">
+          <div className="search-box hidden sm:block">
             <input
               type="text"
               placeholder="Search"
-              className="w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
+              className="w-[140px] md:w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
             />
           </div>
         </div>
 
         {/* Center - Navigation */}
-        <nav className="hidden md:flex gap-5 text-sm">
+        <nav className="hidden lg:flex gap-5 text-sm">
           <Link href="/" className="text-gray-800 hover:font-semibold hover:text-orange-600 transition-colors">
             Home
           </Link>
@@ -110,8 +111,8 @@ export default function CoursePlayerPage() {
           </Link>
         </nav>
 
-        {/* Right - Profile & Menu */}
-        <div className="flex items-center gap-4 relative">
+        {/* Right - Profile & Mobile Toggle */}
+        <div className="flex items-center gap-3 md:gap-4 relative">
           <div 
             className="cursor-pointer hover:scale-110 transition-transform"
             onClick={() => setShowProfileMenu(!showProfileMenu)}
@@ -119,11 +120,17 @@ export default function CoursePlayerPage() {
             <Image
               src="/images/dashboard/Ellipse%2068.png"
               alt="Profile"
-              width={40}
-              height={40}
-              className="rounded-full object-cover border-2 border-white shadow-md"
+              width={36}
+              height={36}
+              className="rounded-full object-cover border-2 border-white shadow-md md:w-[40px] md:h-[40px]"
             />
           </div>
+          <button 
+            className="text-xl bg-transparent border-none cursor-pointer hover:scale-110 transition-transform lg:hidden"
+            onClick={() => setShowMobileNav(!showMobileNav)}
+          >
+            {showMobileNav ? "\u2715" : "\u2630"}
+          </button>
 
           {/* Profile Menu Dropdown */}
           {showProfileMenu && (
@@ -142,8 +149,20 @@ export default function CoursePlayerPage() {
         </div>
       </header>
 
+      {/* Mobile Navigation Dropdown */}
+      {showMobileNav && (
+        <div className="lg:hidden sticky top-[60px] md:top-[70px] z-40 flex flex-col gap-2 px-4 py-3 shadow-md text-sm animate-fadeInDown" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+          <Link href="/" className="text-gray-800 hover:text-orange-600 py-1">Home</Link>
+          <Link href="/student-dashboard" className="text-gray-800 hover:text-orange-600 py-1">Dashboard</Link>
+          <Link href="/course-player" className="text-gray-800 font-semibold py-1">Course Player</Link>
+          <Link href="/courses" className="text-gray-800 hover:text-orange-600 py-1">Recommended Courses</Link>
+          <Link href="/quiz" className="text-gray-800 hover:text-orange-600 py-1">Quiz</Link>
+          <Link href="/about" className="text-gray-800 hover:text-orange-600 py-1">About</Link>
+        </div>
+      )}
+
       {/* ===== MAIN CONTENT ===== */}
-      <main className="max-w-7xl mx-auto px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 py-4 md:py-8">
         {/* Course Title & Actions */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4 animate-fadeInUp">
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
@@ -320,7 +339,7 @@ export default function CoursePlayerPage() {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <footer className="px-10 py-8 mt-10 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+      <footer className="px-4 md:px-10 py-6 md:py-8 mt-10 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
@@ -348,9 +367,9 @@ export default function CoursePlayerPage() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 mb-8">
           {/* Quick Links */}
-          <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
+          <div className="footer-card rounded-2xl p-4 md:p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
             <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">
               <span className="text-xl">🚀</span> Quick Links
             </h4>

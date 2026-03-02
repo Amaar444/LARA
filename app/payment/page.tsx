@@ -37,7 +37,7 @@ export default function PaymentPage() {
 
   return (
     <div 
-      className="min-h-screen p-8"
+      className="min-h-screen p-4 md:p-8"
       style={{ background: "linear-gradient(to bottom, #FFE5B4, #FFF8E7, #FFFDF5)" }}
     >
       {/* Custom Animations */}
@@ -179,7 +179,7 @@ export default function PaymentPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* LEFT CARD - FORM */}
-          <div className="bg-white/80 backdrop-blur-sm px-8 py-10 rounded-2xl shadow-xl border border-orange-100 animate-fadeInLeft stagger-1">
+          <div className="bg-white/80 backdrop-blur-sm px-4 md:px-8 py-6 md:py-10 rounded-2xl shadow-xl border border-orange-100 animate-fadeInLeft stagger-1">
             <div className="flex items-center justify-center gap-2 mb-2">
               <FaCreditCard className="text-orange-500 text-2xl animate-float" />
               <h1 className="text-3xl font-bold text-gray-800">Pay now</h1>

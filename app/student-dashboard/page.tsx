@@ -90,19 +90,19 @@ export default function StudentDashboard() {
 
       {/* ===== NAVBAR ===== */}
       <header 
-        className="h-[70px] sticky top-0 z-50 flex items-center justify-between px-9 shadow-lg"
+        className="h-[60px] md:h-[70px] sticky top-0 z-50 flex items-center justify-between px-4 md:px-9 shadow-lg"
         style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}
       >
         {/* Left - Logo & Search */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <Link href="/" className="hover:scale-105 transition-transform">
-            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg" />
+            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg w-[40px] h-[40px] md:w-[55px] md:h-[55px]" />
           </Link>
-          <div className="search-box">
+          <div className="search-box hidden sm:block">
             <input
               type="text"
               placeholder="Search"
-              className="w-[190px] px-3.5 py-1.5 rounded-3xl border border-gray-200 outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
+              className="w-[140px] md:w-[190px] px-3.5 py-1.5 rounded-3xl border border-gray-200 outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
             />
           </div>
         </div>
@@ -166,15 +166,15 @@ export default function StudentDashboard() {
 
       {/* ===== HERO SECTION ===== */}
       <section 
-        className="py-8 px-8"
+        className="py-6 px-4 md:py-8 md:px-8"
         style={{ background: "linear-gradient(to right, #ffb45a, #87CEEB)" }}
       >
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="animate-fadeInLeft">
-            <h1 className="text-4xl md:text-5xl font-bold text-orange-500 mb-2">
+            <h1 className="text-3xl md:text-5xl font-bold text-orange-500 mb-2">
               Welcome,
             </h1>
-            <h2 className="text-4xl md:text-5xl font-bold text-orange-500">
+            <h2 className="text-3xl md:text-5xl font-bold text-orange-500">
               Nourhan!
             </h2>
           </div>
@@ -191,7 +191,7 @@ export default function StudentDashboard() {
       </section>
 
       {/* ===== MAIN CONTENT ===== */}
-      <main className="max-w-6xl mx-auto px-6 py-10">
+      <main className="max-w-6xl mx-auto px-4 md:px-6 py-6 md:py-10">
         {/* Your Current Progress */}
         <h2 className="text-2xl font-bold text-gray-900 mb-6 animate-fadeInUp">
           Your Current Progress
@@ -202,7 +202,7 @@ export default function StudentDashboard() {
           {coursesProgress.map((course, index) => (
             <div 
               key={course.id}
-              className="bg-white rounded-2xl border-2 border-gray-200 p-6 flex flex-col lg:flex-row items-center gap-8 hover:shadow-xl transition-shadow duration-300 animate-fadeInUp"
+              className="bg-white rounded-2xl border-2 border-gray-200 p-4 md:p-6 flex flex-col lg:flex-row items-center gap-4 lg:gap-8 hover:shadow-xl transition-shadow duration-300 animate-fadeInUp"
               style={{ animationDelay: `${0.1 * (index + 1)}s` }}
             >
               {/* Left - Course Card */}
@@ -334,7 +334,7 @@ export default function StudentDashboard() {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <footer className="px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+      <footer className="px-4 md:px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
@@ -362,7 +362,7 @@ export default function StudentDashboard() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
           {/* Quick Links */}
           <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
             <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">

@@ -48,7 +48,7 @@ export default function CoursesManagement() {
       <CoursesManagementNavbar />
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 py-8">
+      <main className="max-w-7xl mx-auto px-4 md:px-6 py-6 md:py-8">
         {/* Header with Add Button */}
         <div className="flex justify-end mb-6">
           <AddCourseButton onClick={handleAddCourse} />

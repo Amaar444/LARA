@@ -53,19 +53,19 @@ export default function AboutPage() {
 
       {/* ===== HEADER ===== */}
       <header 
-        className="h-[70px] sticky top-0 z-50 flex items-center justify-between px-9 shadow-lg"
+        className="h-[60px] md:h-[70px] sticky top-0 z-50 flex items-center justify-between px-4 md:px-9 shadow-lg"
         style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}
       >
         {/* Left - Logo & Search */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <Link href="/" className="hover:scale-105 transition-transform">
-            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg" />
+            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg w-[40px] h-[40px] md:w-[55px] md:h-[55px]" />
           </Link>
-          <div className="search-box">
+          <div className="search-box hidden sm:block">
             <input
               type="text"
               placeholder="Search"
-              className="w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
+              className="w-[140px] md:w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
             />
           </div>
         </div>
@@ -130,21 +130,33 @@ export default function AboutPage() {
         </div>
       </header>
 
+      {/* Mobile Navigation Dropdown */}
+      {showMobileNav && (
+        <div className="fixed top-[60px] md:top-[70px] left-0 right-0 bg-white shadow-lg py-4 px-6 flex flex-col gap-2 z-40 md:hidden">
+          <Link href="/" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50" onClick={() => setShowMobileNav(false)}>Home</Link>
+          <Link href="/dashboard" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50" onClick={() => setShowMobileNav(false)}>Dashboard</Link>
+          <Link href="/course-player" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50" onClick={() => setShowMobileNav(false)}>Course Player</Link>
+          <Link href="/courses" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50" onClick={() => setShowMobileNav(false)}>Recommended Courses</Link>
+          <Link href="/quiz" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50" onClick={() => setShowMobileNav(false)}>Quiz</Link>
+          <Link href="/about" className="py-2 px-4 rounded-lg text-gray-800 font-semibold bg-orange-50" onClick={() => setShowMobileNav(false)}>About</Link>
+        </div>
+      )}
+
       {/* ===== MAIN CONTENT ===== */}
-      <main className="max-w-[1200px] mx-auto my-12 mb-20 px-4 relative z-10">
+      <main className="max-w-[1200px] mx-auto my-6 mb-12 md:my-12 md:mb-20 px-4 relative z-10">
 
         {/* Section 1 */}
-        <section className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center mb-20">
+        <section className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-12 items-center mb-12 lg:mb-20">
           <div className="animate-fadeInLeft">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center animate-float shadow-lg">
-                <FaGraduationCap className="text-2xl text-white" />
+              <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-gradient-to-br from-orange-400 to-amber-500 flex items-center justify-center animate-float shadow-lg">
+                <FaGraduationCap className="text-xl md:text-2xl text-white" />
               </div>
-              <h1 className="text-[36px] font-bold leading-snug bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
+              <h1 className="text-2xl md:text-[36px] font-bold leading-snug bg-gradient-to-r from-orange-600 to-amber-600 bg-clip-text text-transparent">
                 Innovative Education
               </h1>
             </div>
-            <h2 className="text-[32px] font-bold leading-snug mb-6">
+            <h2 className="text-xl md:text-[32px] font-bold leading-snug mb-6">
               with the Power of Artificial Intelligence
             </h2>
             <p className="text-[16px] text-gray-700 leading-relaxed">
@@ -179,7 +191,7 @@ export default function AboutPage() {
         </section>
 
         {/* Section 2 */}
-        <section className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-12 items-center mb-20">
+        <section className="grid grid-cols-1 lg:grid-cols-[0.9fr_1.1fr] gap-6 lg:gap-12 items-center mb-12 lg:mb-20">
           <div className="flex justify-center order-2 lg:order-1 animate-fadeInLeft" style={{ animationDelay: "0.1s" }}>
             <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-300 to-purple-300 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity" />
@@ -198,7 +210,7 @@ export default function AboutPage() {
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-400 to-purple-500 flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: "0.5s" }}>
                 <FaChartLine className="text-xl text-white" />
               </div>
-              <h2 className="text-[28px] font-bold leading-snug">
+              <h2 className="text-xl md:text-[28px] font-bold leading-snug">
                 Personalized Learning Paths
               </h2>
             </div>
@@ -212,13 +224,13 @@ export default function AboutPage() {
         </section>
 
         {/* Section 3 */}
-        <section className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center mb-16">
+        <section className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-6 lg:gap-12 items-center mb-16">
           <div className="animate-fadeInLeft" style={{ animationDelay: "0.1s" }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-green-400 to-teal-500 flex items-center justify-center animate-float shadow-lg" style={{ animationDelay: "1s" }}>
                 <FaBrain className="text-xl text-white" />
               </div>
-              <h2 className="text-[28px] font-bold leading-snug">
+              <h2 className="text-xl md:text-[28px] font-bold leading-snug">
                 Instant Help, Always On
               </h2>
             </div>
@@ -246,7 +258,7 @@ export default function AboutPage() {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <footer className="px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+      <footer className="px-4 md:px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
@@ -274,7 +286,7 @@ export default function AboutPage() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
           {/* Quick Links */}
           <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
             <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">

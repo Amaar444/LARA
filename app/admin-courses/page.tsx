@@ -66,7 +66,7 @@ export default function AdminCoursesPage() {
       <AdminNavbar activeTab="course-management" />
 
       {/* Main Content */}
-      <main className="px-8 py-6 max-w-7xl mx-auto">
+      <main className="px-4 md:px-8 py-6 max-w-7xl mx-auto">
         {/* Filters */}
         <AdminCourseFilters
           searchTerm={searchTerm}

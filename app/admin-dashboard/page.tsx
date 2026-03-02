@@ -29,7 +29,7 @@ export default function AdminDashboard() {
       <AdminNavbar activeTab="dashboard" />
 
       {/* Main Content */}
-      <main className="px-8 py-6 max-w-7xl mx-auto">
+      <main className="px-4 md:px-8 py-6 max-w-7xl mx-auto">
         {/* Stats Cards */}
         <div className="flex flex-wrap justify-center gap-4 mb-8">
           <AdminStatsCard type="students" value={adminStats.totalStudents} delay={0} />

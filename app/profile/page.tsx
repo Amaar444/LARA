@@ -50,19 +50,19 @@ export default function ProfilePage() {
       `}</style>
       {/* Header */}
       <header 
-        className="h-[70px] sticky top-0 z-50 flex items-center justify-between px-9 shadow-lg animate-fadeInDown"
+        className="h-[60px] md:h-[70px] sticky top-0 z-50 flex items-center justify-between px-4 md:px-9 shadow-lg animate-fadeInDown"
         style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}
       >
         {/* Left - Logo & Search */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <Link href="/" className="hover:scale-105 transition-transform">
-            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg" />
+            <Image src="/images/about/logo.png" alt="LARA logo" width={55} height={55} className="rounded-lg w-[40px] h-[40px] md:w-[55px] md:h-[55px]" />
           </Link>
-          <div className="search-box">
+          <div className="search-box hidden sm:block">
             <input
               type="text"
               placeholder="Search"
-              className="w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
+              className="w-[140px] md:w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm focus:ring-2 focus:ring-orange-300"
             />
           </div>
         </div>
@@ -124,7 +124,7 @@ export default function ProfilePage() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-8 py-12">
+      <main className="max-w-5xl mx-auto px-4 md:px-8 py-8 md:py-12">
         {/* Back Button */}
         <Link 
           href="/student-dashboard" 
@@ -134,7 +134,7 @@ export default function ProfilePage() {
         </Link>
 
         {/* Profile Section */}
-        <div className="bg-white rounded-3xl shadow-2xl p-10 animate-scaleIn border-2 border-orange-100">
+        <div className="bg-white rounded-3xl shadow-2xl p-5 md:p-10 animate-scaleIn border-2 border-orange-100">
           {/* Avatar */}
           <div className="flex flex-col items-center mb-10">
             <div className="relative animate-pulse-glow">
@@ -156,9 +156,9 @@ export default function ProfilePage() {
           {/* Profile Fields */}
           <div className="space-y-6 max-w-2xl mx-auto">
             {/* Full Name */}
-            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
-              <div className="flex items-center gap-4 flex-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-2 border-orange-100 rounded-xl p-3 md:p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white gap-3 sm:gap-0">
+              <div className="flex items-center gap-3 md:gap-4 flex-1">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center flex-shrink-0">
                   <FaUser className="text-white text-xl" />
                 </div>
                 <div className="flex-1">
@@ -184,9 +184,9 @@ export default function ProfilePage() {
             </div>
 
             {/* Email */}
-            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
-              <div className="flex items-center gap-4 flex-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-2 border-orange-100 rounded-xl p-3 md:p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white gap-3 sm:gap-0">
+              <div className="flex items-center gap-3 md:gap-4 flex-1">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center flex-shrink-0">
                   <FaEnvelope className="text-white text-xl" />
                 </div>
                 <div className="flex-1">
@@ -212,9 +212,9 @@ export default function ProfilePage() {
             </div>
 
             {/* Gender */}
-            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
-              <div className="flex items-center gap-4 flex-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-2 border-orange-100 rounded-xl p-3 md:p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white gap-3 sm:gap-0">
+              <div className="flex items-center gap-3 md:gap-4 flex-1">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center flex-shrink-0">
                   <FaVenusMars className="text-white text-xl" />
                 </div>
                 <div className="flex-1">
@@ -243,9 +243,9 @@ export default function ProfilePage() {
             </div>
 
             {/* Phone Number */}
-            <div className="flex items-center justify-between border-2 border-orange-100 rounded-xl p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white">
-              <div className="flex items-center gap-4 flex-1">
-                <div className="w-12 h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-2 border-orange-100 rounded-xl p-3 md:p-5 hover:shadow-lg transition-shadow bg-gradient-to-r from-orange-50 to-white gap-3 sm:gap-0">
+              <div className="flex items-center gap-3 md:gap-4 flex-1">
+                <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-orange-400 to-amber-300 rounded-full flex items-center justify-center flex-shrink-0">
                   <FaPhone className="text-white text-xl" />
                 </div>
                 <div className="flex-1">
@@ -274,7 +274,7 @@ export default function ProfilePage() {
       </main>
 
       {/* Footer */}
-      <footer className="px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+      <footer className="px-4 md:px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
@@ -302,7 +302,7 @@ export default function ProfilePage() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
           {/* Quick Links */}
           <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
             <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">

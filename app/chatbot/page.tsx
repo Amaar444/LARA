@@ -46,10 +46,10 @@ export default function ChatBotPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center p-8">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-[700px] flex flex-col">
+    <div className="min-h-screen bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center p-4 md:p-8">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl h-[calc(100vh-32px)] md:h-[700px] flex flex-col">
         {/* Header */}
-        <header className="bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] p-6 rounded-t-2xl flex justify-between items-center">
+        <header className="bg-gradient-to-r from-[#FFAE74] to-[#FFF4B7] p-4 md:p-6 rounded-t-2xl flex justify-between items-center">
           <div className="flex items-center gap-3">
             <Image
               src="/images/logo.jpg"

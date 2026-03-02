@@ -37,7 +37,7 @@ export default function CourseDetailPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <main className="max-w-7xl mx-auto px-8 py-8">
+      <main className="max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8">
         {/* Video Section */}
         <section className="grid md:grid-cols-3 gap-8 mb-8">
           {/* Video Player */}
@@ -57,7 +57,7 @@ export default function CourseDetailPage() {
                 This course takes you step by step from the basics of interface design
                 to building interactive prototypes and complete design systems.
               </p>
-              <div className="grid grid-cols-3 gap-4 mb-4 text-sm">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-4 mb-4 text-sm">
                 <div>
                   <span className="text-gray-500">Language:</span>
                   <span className="ml-2 font-semibold">Arabic</span>

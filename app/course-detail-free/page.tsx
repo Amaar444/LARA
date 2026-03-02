@@ -187,7 +187,7 @@ export default function CourseDetailFreePage() {
       `}</style>
 
       {/* Back Button */}
-      <div className="px-8 py-6 animate-slideDown">
+      <div className="px-4 md:px-8 py-4 md:py-6 animate-slideDown">
         <Link 
           href="/courses-list"
           className="inline-flex items-center gap-2 text-gray-700 hover:text-orange-600 transition-colors group"
@@ -198,7 +198,7 @@ export default function CourseDetailFreePage() {
       </div>
 
       {/* Main Content */}
-      <main className="max-w-6xl mx-auto px-6 pb-16">
+      <main className="max-w-6xl mx-auto px-4 md:px-6 pb-16">
         {/* Course Header Section */}
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-10 mb-12">
           {/* Video Preview */}
@@ -226,7 +226,7 @@ export default function CourseDetailFreePage() {
 
           {/* Course Info */}
           <div className="animate-fadeInRight stagger-2">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">UI Design</h1>
+            <h1 className="text-2xl md:text-4xl font-bold text-gray-800 mb-4">UI Design</h1>
             
             <div className="space-y-4 mb-6">
               <div className="flex items-center gap-3">

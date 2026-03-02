@@ -138,7 +138,7 @@ export default function CoursesPage() {
             <div className="w-12 h-12 rounded-full bg-white/30 flex items-center justify-center animate-float">
               <FaBrain className="text-2xl text-orange-700" />
             </div>
-            <h1 className="text-[36px] font-bold text-gray-800">Discover Your Learning Path</h1>
+            <h1 className="text-2xl md:text-[36px] font-bold text-gray-800">Discover Your Learning Path</h1>
           </div>
           <p className="text-gray-700 text-base max-w-2xl mx-auto animate-fadeInUp" style={{ animationDelay: "0.3s" }}>
             Enter your details and leverage AI to get personalized and effective
@@ -155,7 +155,7 @@ export default function CoursesPage() {
           }}
         >
           {/* Left Side - Form */}
-          <div className="flex-1 px-10 py-12 relative">
+          <div className="flex-1 px-5 py-8 md:px-10 md:py-12 relative">
             {/* Decorative corner element */}
             <div className="absolute top-0 left-0 w-20 h-20 bg-gradient-to-br from-orange-100 to-transparent rounded-br-full opacity-50" />
             

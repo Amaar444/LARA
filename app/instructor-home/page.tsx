@@ -30,7 +30,7 @@ export default function InstructorHome() {
       <HeroSection userName={instructorData.name} />
 
       {/* My Courses Section */}
-      <section className="py-12 px-8">
+      <section className="py-8 md:py-12 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-2xl font-bold text-gray-900 text-center mb-8 animate-fadeIn">
             My Courses

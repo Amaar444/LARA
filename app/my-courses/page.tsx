@@ -11,19 +11,19 @@ export default function MyCoursesPage() {
     <div className="min-h-screen bg-[#f5f5f5]">
       {/* ====== HEADER ====== */}
       <header 
-        className="h-[70px] sticky top-0 z-20 flex items-center justify-between px-9"
+        className="h-[60px] md:h-[70px] sticky top-0 z-20 flex items-center justify-between px-4 md:px-9"
         style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}
       >
         {/* Left */}
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 md:gap-4">
           <div className="logo">
-            <Image src="/images/my-courses/logo.png" alt="LARA logo" width={55} height={55} />
+            <Image src="/images/my-courses/logo.png" alt="LARA logo" width={55} height={55} className="w-[40px] h-[40px] md:w-[55px] md:h-[55px]" />
           </div>
-          <div className="search-box">
+          <div className="search-box hidden sm:block">
             <input
               type="text"
               placeholder="Search"
-              className="w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm"
+              className="w-[140px] md:w-[190px] px-3.5 py-1.5 rounded-3xl border-none outline-none bg-white text-sm"
             />
           </div>
         </div>
@@ -64,7 +64,15 @@ export default function MyCoursesPage() {
               className="rounded-full object-cover"
             />
           </div>
-          <button className="text-xl bg-transparent border-none cursor-pointer">☰</button>
+          <button 
+            className="text-xl bg-transparent border-none cursor-pointer md:hidden"
+            onClick={() => {
+              const mobileNav = document.getElementById('my-courses-mobile-nav');
+              if (mobileNav) mobileNav.classList.toggle('hidden');
+            }}
+          >
+            ☰
+          </button>
 
           {/* Profile Menu */}
           {showProfileMenu && (
@@ -83,12 +91,24 @@ export default function MyCoursesPage() {
         </div>
       </header>
 
+      {/* Mobile Navigation */}
+      <div id="my-courses-mobile-nav" className="hidden md:hidden sticky top-[60px] z-10 bg-white shadow-lg py-3 px-6">
+        <nav className="flex flex-col gap-2 text-sm">
+          <Link href="/my-courses" className="py-2 px-4 rounded-lg text-gray-800 font-semibold bg-orange-50">Home</Link>
+          <Link href="/student-dashboard" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50">Dashboard</Link>
+          <Link href="/course-player" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50">Course Player</Link>
+          <Link href="/courses" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50">Recommended Courses</Link>
+          <Link href="/quiz" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50">Quiz</Link>
+          <Link href="/about" className="py-2 px-4 rounded-lg text-gray-800 hover:bg-orange-50">About</Link>
+        </nav>
+      </div>
+
       {/* ====== HERO ====== */}
       <section className="bg-[#ffe9b9]">
         <div className="max-w-[1150px] mx-auto flex flex-col md:flex-row justify-between items-center px-3 py-8 md:py-10">
           <div className="max-w-[470px] text-center md:text-left mb-6 md:mb-0">
             <p className="text-xl text-[#ff8b2b] mb-1">Welcome ,</p>
-            <h1 className="text-[38px] leading-tight font-bold mb-3.5">
+            <h1 className="text-[28px] md:text-[38px] leading-tight font-bold mb-3.5">
               Learn Smart, Grow<br />Fast
             </h1>
             <p className="text-sm text-gray-700 mb-6 max-w-[360px] mx-auto md:mx-0">
@@ -279,7 +299,7 @@ export default function MyCoursesPage() {
       </main>
 
       {/* ====== FOOTER ====== */}
-      <footer className="px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
+      <footer className="px-4 md:px-10 py-8 mt-5 relative overflow-hidden" style={{ background: "linear-gradient(to right, #ffb45a, #ffe6a5)" }}>
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-8 fade-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
           <div className="flex flex-col items-center md:items-start mb-4 md:mb-0">
@@ -287,7 +307,7 @@ export default function MyCoursesPage() {
           </div>
           
           {/* Social Icons */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap justify-center">
             <div className="social-btn w-11 h-11 bg-[#d98a47] rounded-full flex items-center justify-center">
               <span className="text-white font-bold">f</span>
             </div>
@@ -307,7 +327,7 @@ export default function MyCoursesPage() {
         </div>
 
         {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-5 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-8">
           {/* Quick Links */}
           <div className="footer-card rounded-2xl p-5 slide-in" style={{ animationDelay: '0.2s', opacity: 0 }}>
             <h4 className="text-[#8B4513] font-bold text-lg mb-4 flex items-center gap-2">

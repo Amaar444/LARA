@@ -5,14 +5,14 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="w-full min-h-screen m-0 p-[35px_60px_40px] bg-gradient-to-r from-white via-white to-[#fbb37b] relative overflow-hidden">
+    <main className="w-full min-h-screen m-0 p-[20px_16px_30px] md:p-[35px_60px_40px] bg-gradient-to-r from-white via-white to-[#fbb37b] relative overflow-hidden">
       {/* Header */}
-      <header className="flex items-center justify-between mb-8 animate-fade-in">
+      <header className="flex items-center justify-between mb-6 md:mb-8 animate-fade-in">
         <div className="flex items-center gap-2 hover:scale-105 transition-transform">
-          <Image src="/images/logo.jpg" alt="LARA Logo" width={65} height={65} className="rounded-full shadow-md" />
+          <Image src="/images/logo.jpg" alt="LARA Logo" width={65} height={65} className="rounded-full shadow-md w-[45px] h-[45px] md:w-[65px] md:h-[65px]" />
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 md:gap-4">
           <Link href="/login" className="text-gray-800 text-sm hover:text-orange-600 transition-colors font-medium">
             Log In
           </Link>
@@ -26,19 +26,19 @@ export default function Home() {
       </header>
 
       {/* Hero Content */}
-      <section className="flex justify-between items-center">
-        <div className="w-2/5 flex justify-center items-center animate-slide-in-left">
-          <div className="ml-5">
-            <h1 className="text-5xl font-bold max-w-md mb-6 animate-fade-in-up">
+      <section className="flex flex-col md:flex-row justify-between items-center">
+        <div className="w-full md:w-2/5 flex justify-center items-center animate-slide-in-left">
+          <div className="ml-0 md:ml-5 text-center md:text-left">
+            <h1 className="text-3xl md:text-5xl font-bold max-w-md mb-4 md:mb-6 animate-fade-in-up">
               Learn smart, start your future here!
             </h1>
-            <p className="text-sm font-medium mb-10 max-w-md text-gray-700 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+            <p className="text-sm font-medium mb-6 md:mb-10 max-w-md text-gray-700 animate-fade-in-up mx-auto md:mx-0" style={{ animationDelay: "0.2s" }}>
               A smart educational platform that combines professional teachers
               and modern technologies for easy and interactive learning.
             </p>
             <Link
               href="/login"
-              className="inline-flex items-center justify-center w-48 h-14 bg-[#e77f0f] text-white rounded-full text-base font-semibold hover:bg-[#d67010] transition-all hover:scale-105 shadow-lg hover:shadow-xl animate-fade-in-up"
+              className="inline-flex items-center justify-center w-40 h-12 md:w-48 md:h-14 bg-[#e77f0f] text-white rounded-full text-sm md:text-base font-semibold hover:bg-[#d67010] transition-all hover:scale-105 shadow-lg hover:shadow-xl animate-fade-in-up"
               style={{ animationDelay: "0.4s" }}
             >
               Get Started
@@ -46,20 +46,20 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="w-3/5 flex justify-start animate-slide-in-right">
+        <div className="w-full md:w-3/5 flex justify-center md:justify-start animate-slide-in-right mt-6 md:mt-0">
           <Image
             src="/images/hero-students.jpg.png"
             alt="Students learning"
             width={600}
             height={500}
-            className="w-4/5 hover:scale-105 transition-transform duration-500"
+            className="w-[90%] md:w-4/5 hover:scale-105 transition-transform duration-500"
             priority
           />
         </div>
       </section>
 
       {/* Social Icons - Horizontal Layout */}
-      <div className="absolute top-[520px] right-16 flex gap-3 animate-fade-in-right">
+      <div className="hidden md:flex absolute top-[520px] right-16 gap-3 animate-fade-in-right">
         <Link href="#" className="hover:scale-110 transition-transform hover:rotate-6">
           <Image src="/images/facebook.jpg" alt="Facebook" width={28} height={28} className="rounded-full border-2 border-gray-400 shadow-md hover:shadow-lg" />
         </Link>
@@ -75,7 +75,7 @@ export default function Home() {
       </div>
 
       {/* Community Box - Aligned with Social Icons */}
-      <div className="absolute top-[520px] left-[350px] flex items-center gap-3 animate-bounce-slow">
+      <div className="hidden md:flex absolute top-[520px] left-[350px] items-center gap-3 animate-bounce-slow">
         <div className="flex">
           <Image src="/images/comm.jpg" alt="Community" width={50} height={50} className="rounded-full border-4 border-white shadow-lg hover:scale-110 transition-transform" />
         </div>
