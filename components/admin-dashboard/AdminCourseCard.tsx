@@ -16,7 +16,6 @@ interface AdminCourseCardProps {
   course: Course;
   onApprove: (id: number) => void;
   onReject: (id: number) => void;
-  onEdit: (id: number) => void;
   onDelete: (id: number) => void;
   delay?: number;
 }
@@ -25,7 +24,6 @@ const AdminCourseCard: React.FC<AdminCourseCardProps> = ({
   course,
   onApprove,
   onReject,
-  onEdit,
   onDelete,
   delay = 0,
 }) => {
@@ -80,14 +78,8 @@ const AdminCourseCard: React.FC<AdminCourseCardProps> = ({
         </button>
       </div>
 
-      {/* Edit/Delete Buttons */}
+      {/* Delete Button */}
       <div className="flex items-center gap-2">
-        <button
-          onClick={() => onEdit(course.id)}
-          className="px-6 py-1.5 rounded-lg border border-gray-300 text-sm text-gray-600 hover:bg-gray-50 hover:border-gray-400 transition-all"
-        >
-          Edit
-        </button>
         <button
           onClick={() => onDelete(course.id)}
           className="px-5 py-1.5 rounded-lg bg-red-500 text-white text-sm font-medium hover:bg-red-600 transition-all"

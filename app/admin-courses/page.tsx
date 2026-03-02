@@ -53,11 +53,6 @@ export default function AdminCoursesPage() {
     );
   };
 
-  const handleEdit = (id: number) => {
-    console.log("Edit course:", id);
-    // Add edit logic
-  };
-
   const handleDelete = (id: number) => {
     setCourses((prev) => prev.filter((course) => course.id !== id));
   };
@@ -88,7 +83,6 @@ export default function AdminCoursesPage() {
               course={course}
               onApprove={handleApprove}
               onReject={handleReject}
-              onEdit={handleEdit}
               onDelete={handleDelete}
               delay={0.05 * index}
             />

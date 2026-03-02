@@ -58,11 +58,6 @@ export default function AdminUsersPage() {
     }
   };
 
-  const handleEdit = (id: number) => {
-    console.log("Edit user:", id);
-    // Add edit logic
-  };
-
   const handleDelete = (id: number) => {
     console.log("Delete user:", id);
     // Add delete logic
@@ -108,7 +103,6 @@ export default function AdminUsersPage() {
           selectedUsers={selectedUsers}
           onSelectUser={handleSelectUser}
           onSelectAll={handleSelectAll}
-          onEdit={handleEdit}
           onDelete={handleDelete}
         />
 

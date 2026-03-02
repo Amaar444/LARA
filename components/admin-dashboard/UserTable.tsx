@@ -15,7 +15,6 @@ interface UserTableProps {
   selectedUsers: number[];
   onSelectUser: (id: number) => void;
   onSelectAll: () => void;
-  onEdit: (id: number) => void;
   onDelete: (id: number) => void;
 }
 
@@ -24,7 +23,6 @@ const UserTable: React.FC<UserTableProps> = ({
   selectedUsers,
   onSelectUser,
   onSelectAll,
-  onEdit,
   onDelete,
 }) => {
   const getStatusColor = (status: string) => {
@@ -112,29 +110,8 @@ const UserTable: React.FC<UserTableProps> = ({
                   {user.status}
                 </td>
                 <td className="py-4 px-4">
-                  {user.status !== "Suspended" && user.status !== "Pending" ? (
+                  {user.status !== "Suspended" ? (
                     <div className="flex items-center gap-3">
-                      <button 
-                        onClick={() => onEdit(user.id)}
-                        className="text-sm text-gray-700 hover:text-orange-600 transition-colors font-medium"
-                      >
-                        Edit
-                      </button>
-                      <button 
-                        onClick={() => onDelete(user.id)}
-                        className="text-sm text-red-500 hover:text-red-700 transition-colors font-medium"
-                      >
-                        Delete
-                      </button>
-                    </div>
-                  ) : user.status === "Pending" ? (
-                    <div className="flex items-center gap-3">
-                      <button 
-                        onClick={() => onEdit(user.id)}
-                        className="text-sm text-gray-700 hover:text-orange-600 transition-colors font-medium"
-                      >
-                        Edit
-                      </button>
                       <button 
                         onClick={() => onDelete(user.id)}
                         className="text-sm text-red-500 hover:text-red-700 transition-colors font-medium"
