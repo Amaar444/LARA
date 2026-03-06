@@ -5,6 +5,7 @@ interface CalendarCardProps {
   year: number;
   selectedDate: number;
   days: { date: number; weekday: string }[];
+  onApplyNow?: () => void;
 }
 
 const CalendarCard: React.FC<CalendarCardProps> = ({
@@ -12,6 +13,7 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
   year,
   selectedDate,
   days,
+  onApplyNow,
 }) => {
   const weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -47,7 +49,11 @@ const CalendarCard: React.FC<CalendarCardProps> = ({
       </div>
 
       <div className="mt-8">
-        <button className="w-full bg-[#FF8A00] text-white font-semibold py-3 rounded-full hover:bg-[#FF7700] transition-colors shadow-md">
+        <p className="text-center text-xs text-gray-400 mb-3">*You can choose multiple date</p>
+        <button
+          onClick={onApplyNow}
+          className="w-full bg-[#FF8A00] text-white font-semibold py-3 rounded-full hover:bg-[#FF7700] hover:scale-105 transition-all duration-300 shadow-md"
+        >
           Apply Now
         </button>
       </div>

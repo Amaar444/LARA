@@ -63,11 +63,6 @@ export default function AdminUsersPage() {
     // Add delete logic
   };
 
-  const handleCreateUser = () => {
-    console.log("Create new user");
-    // Add create user logic
-  };
-
   return (
     <div 
       className="min-h-screen"
@@ -78,16 +73,6 @@ export default function AdminUsersPage() {
 
       {/* Main Content */}
       <main className="px-4 md:px-8 py-6 max-w-6xl mx-auto">
-        {/* Header with Create Button */}
-        <div className="flex justify-end mb-6">
-          <button
-            onClick={handleCreateUser}
-            className="px-6 py-2.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg font-medium hover:from-orange-600 hover:to-amber-600 transition-all duration-300 shadow-md hover:shadow-lg"
-          >
-            + Create New User
-          </button>
-        </div>
-
         {/* Filters */}
         <UserFilters
           searchTerm={searchTerm}
